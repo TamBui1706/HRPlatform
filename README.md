@@ -147,5 +147,5 @@ flowchart LR
 
 ## Actor Relationships Diagram
 
-![Actor Relationships Diagram](./a.png)
+![Actor Relationships Diagram](ActRelation.png)
 
