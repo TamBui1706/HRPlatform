@@ -1,4 +1,4 @@
-# HR Platform 
+## HR Platform Feature Mindmap
 
 ```mermaid
 flowchart LR
@@ -142,4 +142,10 @@ flowchart LR
     class ActivityMonitoring,ComputerMonitoring,LocationTracking,FieldOperations feature;
     class Reviews,Goals,Coaching,Recognition,Insights feature;
 ```
+
+---
+
+## Actor Relationships Diagram
+
+![Actor Relationships Diagram](./a.png)
 

@@ -1,0 +1,143 @@
+@startuml
+top to bottom direction
+
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+skinparam linetype polyline
+skinparam nodesep 35
+skinparam ranksep 45
+
+skinparam ArrowColor #777777
+skinparam ActorBorderColor #555555
+skinparam UsecaseBorderColor #777777
+skinparam UsecaseBackgroundColor white
+skinparam RectangleBorderColor #555555
+skinparam RectangleBackgroundColor white
+
+' =====================================================
+' ACTOR BÊN TRÁI
+' =====================================================
+
+actor "System\nAdministrator" as SysAdmin
+actor Recruiter
+actor "Payroll\nAdministrator" as PayrollAdmin
+actor "Department\nManager" as DeptManager
+actor "Project\nManager" as ProjectManager
+
+' Ép actor bên trái thành một cột
+SysAdmin -[hidden]down- Recruiter
+Recruiter -[hidden]down- PayrollAdmin
+PayrollAdmin -[hidden]down- DeptManager
+DeptManager -[hidden]down- ProjectManager
+
+
+' =====================================================
+' USE CASE Ở GIỮA
+' =====================================================
+
+rectangle "HR Platform" {
+    usecase "Platform Management" as Platform
+    usecase "Compliance" as Compliance
+    usecase "Recruitment" as Recruitment
+    usecase "Time & Attendance" as Time
+    usecase "Core HR" as CoreHR
+    usecase "Payroll & Benefits" as Payroll
+    usecase "Analytics & Reporting" as Analytics
+    usecase "Performance" as Performance
+    usecase "Workforce Tracking" as Tracking
+    usecase "Projects" as Projects
+
+    ' Ép use case thành một cột dọc
+    Platform -[hidden]down- Compliance
+    Compliance -[hidden]down- Recruitment
+    Recruitment -[hidden]down- Time
+    Time -[hidden]down- CoreHR
+    CoreHR -[hidden]down- Payroll
+    Payroll -[hidden]down- Analytics
+    Analytics -[hidden]down- Performance
+    Performance -[hidden]down- Tracking
+    Tracking -[hidden]down- Projects
+}
+
+
+' =====================================================
+' ACTOR BÊN PHẢI
+' =====================================================
+
+actor Candidate
+actor "HR Manager" as HR
+actor Employee
+
+' Ép actor bên phải thành một cột
+Candidate -[hidden]down- HR
+HR -[hidden]down- Employee
+
+
+' =====================================================
+' ÉP BỐ CỤC THÀNH BA CỘT
+' =====================================================
+
+SysAdmin -[hidden]right- Platform
+Recruiter -[hidden]right- Recruitment
+PayrollAdmin -[hidden]right- Payroll
+DeptManager -[hidden]right- Performance
+ProjectManager -[hidden]right- Projects
+
+Recruitment -[hidden]right- Candidate
+CoreHR -[hidden]right- HR
+Performance -[hidden]right- Employee
+
+
+' =====================================================
+' QUAN HỆ BÊN TRÁI
+' =====================================================
+
+SysAdmin -- Platform
+SysAdmin -- Compliance
+
+Recruiter -- Recruitment
+Recruiter -- CoreHR
+Recruiter -- Analytics
+
+PayrollAdmin -- Time
+PayrollAdmin -- CoreHR
+PayrollAdmin -- Payroll
+PayrollAdmin -- Analytics
+
+DeptManager -- Recruitment
+DeptManager -- Time
+DeptManager -- CoreHR
+DeptManager -- Analytics
+DeptManager -- Performance
+
+ProjectManager -- Time
+ProjectManager -- Analytics
+ProjectManager -- Performance
+ProjectManager -- Tracking
+ProjectManager -- Projects
+
+
+' =====================================================
+' QUAN HỆ BÊN PHẢI
+' =====================================================
+
+Candidate -- Recruitment
+
+HR -- Compliance
+HR -- Recruitment
+HR -- Time
+HR -- CoreHR
+HR -- Payroll
+HR -- Analytics
+HR -- Performance
+HR -- Tracking
+
+Employee -- Time
+Employee -- CoreHR
+Employee -- Payroll
+Employee -- Performance
+Employee -- Tracking
+Employee -- Projects
+
+@enduml
