@@ -7,14 +7,20 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
-actor "Department Manager" as DepartmentManager
 actor "HR Manager" as HRManager
-actor "Executive Board" as ExecutiveBoard
+actor "Department Manager" as DepartmentManager
+actor "Payroll Administrator" as PayrollAdministrator
 
 rectangle "Analytics & BI Reporting - Executive Dashboards" {
     usecase "UC56: View Headcount & Cost Dashboard" as UC_Main
@@ -22,11 +28,11 @@ rectangle "Analytics & BI Reporting - Executive Dashboards" {
     usecase "Calculate Total Payroll Cost" as UC_CalcCost
     usecase "Compare Budget vs Actual" as UC_CompBud
 
-    DepartmentManager -- UC_Main
     HRManager -- UC_Main
+    DepartmentManager -- UC_Main
+    PayrollAdministrator -- UC_CalcCost
     UC_Main .> UC_RenderHC : <<include>>
     UC_Main .> UC_CalcCost : <<include>>
     UC_Main .> UC_CompBud : <<include>>
-    UC_CompBud -- ExecutiveBoard
 }
 @enduml

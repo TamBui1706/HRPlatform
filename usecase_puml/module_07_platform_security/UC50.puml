@@ -7,14 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "System Administrator" as SystemAdministrator
 actor "HR Manager" as HRManager
-actor "Audit System" as AuditSystem
 
 rectangle "Platform & Security (Web) - Authentication & IAM" {
     usecase "UC50: Manage Roles & Permissions" as UC_Main
@@ -27,6 +32,5 @@ rectangle "Platform & Security (Web) - Authentication & IAM" {
     UC_Main .> UC_MatrixCRUD : <<include>>
     UC_Main .> UC_ScopeData : <<include>>
     UC_Main .> UC_FlushCache : <<include>>
-    UC_FlushCache -- AuditSystem
 }
 @enduml

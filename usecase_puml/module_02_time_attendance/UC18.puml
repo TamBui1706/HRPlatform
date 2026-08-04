@@ -7,14 +7,20 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Department Manager" as DepartmentManager
-actor "Employee" as Employee
 actor "Payroll Administrator" as PayrollAdministrator
+actor "Employee" as Employee
 
 rectangle "Time & Attendance Management - Timesheet Hub" {
     usecase "UC18: Verify & Approve Team Timesheets" as UC_Main
@@ -23,10 +29,10 @@ rectangle "Time & Attendance Management - Timesheet Hub" {
     usecase "Lock Approved Timesheet" as UC_LockGrid
 
     DepartmentManager -- UC_Main
-    Employee -- UC_Main
+    PayrollAdministrator -- UC_LockGrid
+    Employee -- UC_ReviewGrid
     UC_Main .> UC_ReviewGrid : <<include>>
     UC_Main .> UC_FlagAnom : <<include>>
     UC_Main .> UC_LockGrid : <<include>>
-    UC_LockGrid -- PayrollAdministrator
 }
 @enduml

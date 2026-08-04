@@ -7,14 +7,20 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Employee" as Employee
 actor "HR Manager" as HRManager
-actor "Tax Authority Portal" as TaxAuthorityPortal
+actor "Payroll Administrator" as PayrollAdministrator
 
 rectangle "Core HR & Employee Management - Employee Directory" {
     usecase "UC09: Register Tax Dependents" as UC_Main
@@ -24,9 +30,9 @@ rectangle "Core HR & Employee Management - Employee Directory" {
 
     Employee -- UC_Main
     HRManager -- UC_ApproveTax
+    PayrollAdministrator -- UC_ApproveTax
     UC_Main .> UC_FillForm : <<include>>
     UC_Main .> UC_AttachProof : <<include>>
     UC_Main .> UC_ApproveTax : <<include>>
-    UC_ApproveTax -- TaxAuthorityPortal
 }
 @enduml

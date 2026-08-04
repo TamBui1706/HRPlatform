@@ -7,8 +7,14 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
@@ -24,9 +30,9 @@ rectangle "Recruitment & Hiring - Onboarding Hub" {
 
     Recruiter -- UC_Main
     HRManager -- UC_ApproveOffer
+    Candidate -- UC_ResponseStatus
     UC_Main .> UC_OfferPDF : <<include>>
     UC_Main .> UC_ApproveOffer : <<include>>
     UC_Main .> UC_ResponseStatus : <<include>>
-    UC_ResponseStatus -- Candidate
 }
 @enduml

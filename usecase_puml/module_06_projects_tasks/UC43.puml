@@ -7,14 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Project Manager" as ProjectManager
 actor "Department Manager" as DepartmentManager
-actor "Client Representative" as ClientRepresentative
 
 rectangle "Projects & Task Management - Project Lifecycle" {
     usecase "UC43: Create Projects & Milestones" as UC_Main
@@ -27,6 +32,5 @@ rectangle "Projects & Task Management - Project Lifecycle" {
     UC_Main .> UC_SetParam : <<include>>
     UC_Main .> UC_DefMiles : <<include>>
     UC_Main .> UC_ConfWork : <<include>>
-    UC_DefMiles -- ClientRepresentative
 }
 @enduml

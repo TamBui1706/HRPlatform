@@ -7,14 +7,20 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Employee" as Employee
 actor "Payroll Administrator" as PayrollAdministrator
-actor "Finance Manager" as FinanceManager
+actor "HR Manager" as HRManager
 
 rectangle "Payroll & Compensation - Benefits Admin" {
     usecase "UC23: Submit Flex Benefit Claims" as UC_Main
@@ -23,10 +29,10 @@ rectangle "Payroll & Compensation - Benefits Admin" {
     usecase "Approve Benefit Reimbursement" as UC_ApproveBenefit
 
     Employee -- UC_Main
+    PayrollAdministrator -- UC_ApproveBenefit
+    HRManager -- UC_ApproveBenefit
     UC_Main .> UC_CheckCredit : <<include>>
     UC_Main .> UC_UploadInvoice : <<include>>
     UC_Main .> UC_ApproveBenefit : <<include>>
-    UC_ApproveBenefit -- PayrollAdministrator
-    UC_ApproveBenefit -- FinanceManager
 }
 @enduml

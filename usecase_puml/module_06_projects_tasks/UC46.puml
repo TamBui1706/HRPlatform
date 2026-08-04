@@ -7,8 +7,14 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
@@ -22,9 +28,9 @@ rectangle "Projects & Task Management - Time Billing Integration" {
     usecase "Flag Billable Status" as UC_FlagBillable
 
     Employee -- UC_Main
+    ProjectManager -- UC_FlagBillable
     UC_Main .> UC_SelectTask : <<include>>
     UC_Main .> UC_InputHours : <<include>>
     UC_Main .> UC_FlagBillable : <<include>>
-    UC_FlagBillable -- ProjectManager
 }
 @enduml

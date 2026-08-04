@@ -7,14 +7,20 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Department Manager" as DepartmentManager
 actor "Employee" as Employee
-actor "Executive Board" as ExecutiveBoard
+actor "HR Manager" as HRManager
 
 rectangle "Performance & OKRs - Goals & OKRs" {
     usecase "UC37: Align Goals & OKRs" as UC_Main
@@ -22,7 +28,7 @@ rectangle "Performance & OKRs - Goals & OKRs" {
     usecase "Cascade Department OKR" as UC_DeptOKR
     usecase "Link Individual Key Results" as UC_IndivOKR
 
-    ExecutiveBoard -- UC_StratObj
+    HRManager -- UC_StratObj
     DepartmentManager -- UC_Main
     Employee -- UC_IndivOKR
     UC_Main .> UC_StratObj : <<include>>

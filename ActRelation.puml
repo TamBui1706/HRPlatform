@@ -1,143 +1,143 @@
 @startuml
-top to bottom direction
-
 skinparam shadowing false
 skinparam packageStyle rectangle
 skinparam actorStyle stickman
-skinparam linetype polyline
-skinparam nodesep 35
-skinparam ranksep 45
+skinparam nodesep 50
+skinparam ranksep 15
 
-skinparam ArrowColor #777777
-skinparam ActorBorderColor #555555
-skinparam UsecaseBorderColor #777777
-skinparam UsecaseBackgroundColor white
-skinparam RectangleBorderColor #555555
-skinparam RectangleBackgroundColor white
+' Modern Palette & Styling
+skinparam ArrowColor #475569
+skinparam ArrowThickness 1.2
+
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
+skinparam RectangleBorderColor #1e40af
+skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #1e3a8a
+skinparam RectangleFontStyle bold
 
 ' =====================================================
-' ACTOR BÊN TRÁI
+' LEFT COLUMN ACTORS GROUP
 ' =====================================================
+together {
+    actor "System Administrator" as SysAdmin
+    actor "Recruiter" as Recruiter
+    actor "Payroll Administrator" as PayrollAdmin
+    actor "Department Manager" as DeptManager
+    actor "Project Manager" as ProjectManager
+}
 
-actor "System\nAdministrator" as SysAdmin
-actor Recruiter
-actor "Payroll\nAdministrator" as PayrollAdmin
-actor "Department\nManager" as DeptManager
-actor "Project\nManager" as ProjectManager
+' =====================================================
+' CENTER SYSTEM BOUNDARY
+' =====================================================
+rectangle "HR Enterprise Platform" {
+    usecase "Platform Services" as Platform
+    usecase "Compliance & Audit" as Compliance
+    usecase "Recruitment & Hiring" as Recruitment
+    usecase "Time & Attendance" as Time
+    usecase "Core HR & Directory" as CoreHR
+    usecase "Payroll & Compensation" as Payroll
+    usecase "Analytics & BI Reporting" as Analytics
+    usecase "Performance & OKRs" as Performance
+    usecase "Workforce Tracking" as Tracking
+    usecase "Projects & Resources" as Projects
+}
 
-' Ép actor bên trái thành một cột
+' =====================================================
+' RIGHT COLUMN ACTORS GROUP
+' =====================================================
+together {
+    actor "Candidate" as Candidate
+    actor "HR Manager" as HR
+    actor "Employee" as Employee
+}
+
+' =====================================================
+' VERTICAL LAYOUT ORDERING
+' =====================================================
 SysAdmin -[hidden]down- Recruiter
 Recruiter -[hidden]down- PayrollAdmin
 PayrollAdmin -[hidden]down- DeptManager
 DeptManager -[hidden]down- ProjectManager
 
+Platform -[hidden]down- Compliance
+Compliance -[hidden]down- Recruitment
+Recruitment -[hidden]down- Time
+Time -[hidden]down- CoreHR
+CoreHR -[hidden]down- Payroll
+Payroll -[hidden]down- Analytics
+Analytics -[hidden]down- Performance
+Performance -[hidden]down- Tracking
+Tracking -[hidden]down- Projects
 
-' =====================================================
-' USE CASE Ở GIỮA
-' =====================================================
-
-rectangle "HR Platform" {
-    usecase "Platform Management" as Platform
-    usecase "Compliance" as Compliance
-    usecase "Recruitment" as Recruitment
-    usecase "Time & Attendance" as Time
-    usecase "Core HR" as CoreHR
-    usecase "Payroll & Benefits" as Payroll
-    usecase "Analytics & Reporting" as Analytics
-    usecase "Performance" as Performance
-    usecase "Workforce Tracking" as Tracking
-    usecase "Projects" as Projects
-
-    ' Ép use case thành một cột dọc
-    Platform -[hidden]down- Compliance
-    Compliance -[hidden]down- Recruitment
-    Recruitment -[hidden]down- Time
-    Time -[hidden]down- CoreHR
-    CoreHR -[hidden]down- Payroll
-    Payroll -[hidden]down- Analytics
-    Analytics -[hidden]down- Performance
-    Performance -[hidden]down- Tracking
-    Tracking -[hidden]down- Projects
-}
-
-
-' =====================================================
-' ACTOR BÊN PHẢI
-' =====================================================
-
-actor Candidate
-actor "HR Manager" as HR
-actor Employee
-
-' Ép actor bên phải thành một cột
 Candidate -[hidden]down- HR
 HR -[hidden]down- Employee
 
-
 ' =====================================================
-' ÉP BỐ CỤC THÀNH BA CỘT
+' HORIZONTAL COLUMN ALIGNMENT
 ' =====================================================
-
 SysAdmin -[hidden]right- Platform
+Platform -[hidden]right- Candidate
+
 Recruiter -[hidden]right- Recruitment
-PayrollAdmin -[hidden]right- Payroll
-DeptManager -[hidden]right- Performance
+PayrollAdmin -[hidden]right- CoreHR
+DeptManager -[hidden]right- Analytics
 ProjectManager -[hidden]right- Projects
 
-Recruitment -[hidden]right- Candidate
-CoreHR -[hidden]right- HR
-Performance -[hidden]right- Employee
+' =====================================================
+' CONNECTIONS FROM LEFT ACTORS (-right-)
+' =====================================================
+SysAdmin -right- Platform
+SysAdmin -right- Compliance
 
+Recruiter -right- Recruitment
+Recruiter -right- CoreHR
+Recruiter -right- Analytics
+
+PayrollAdmin -right- Time
+PayrollAdmin -right- CoreHR
+PayrollAdmin -right- Payroll
+PayrollAdmin -right- Analytics
+
+DeptManager -right- Recruitment
+DeptManager -right- Time
+DeptManager -right- CoreHR
+DeptManager -right- Analytics
+DeptManager -right- Performance
+
+ProjectManager -right- Time
+ProjectManager -right- Analytics
+ProjectManager -right- Performance
+ProjectManager -right- Tracking
+ProjectManager -right- Projects
 
 ' =====================================================
-' QUAN HỆ BÊN TRÁI
+' CONNECTIONS FROM RIGHT ACTORS (-left-)
 ' =====================================================
+Candidate -left- Recruitment
 
-SysAdmin -- Platform
-SysAdmin -- Compliance
+HR -left- Compliance
+HR -left- Recruitment
+HR -left- Time
+HR -left- CoreHR
+HR -left- Payroll
+HR -left- Analytics
+HR -left- Performance
+HR -left- Tracking
 
-Recruiter -- Recruitment
-Recruiter -- CoreHR
-Recruiter -- Analytics
-
-PayrollAdmin -- Time
-PayrollAdmin -- CoreHR
-PayrollAdmin -- Payroll
-PayrollAdmin -- Analytics
-
-DeptManager -- Recruitment
-DeptManager -- Time
-DeptManager -- CoreHR
-DeptManager -- Analytics
-DeptManager -- Performance
-
-ProjectManager -- Time
-ProjectManager -- Analytics
-ProjectManager -- Performance
-ProjectManager -- Tracking
-ProjectManager -- Projects
-
-
-' =====================================================
-' QUAN HỆ BÊN PHẢI
-' =====================================================
-
-Candidate -- Recruitment
-
-HR -- Compliance
-HR -- Recruitment
-HR -- Time
-HR -- CoreHR
-HR -- Payroll
-HR -- Analytics
-HR -- Performance
-HR -- Tracking
-
-Employee -- Time
-Employee -- CoreHR
-Employee -- Payroll
-Employee -- Performance
-Employee -- Tracking
-Employee -- Projects
+Employee -left- Time
+Employee -left- CoreHR
+Employee -left- Payroll
+Employee -left- Performance
+Employee -left- Tracking
+Employee -left- Projects
 
 @enduml

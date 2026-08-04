@@ -7,14 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "System Administrator" as SystemAdministrator
-actor "Database Administrator" as DatabaseAdministrator
-actor "Security Engine" as SecurityEngine
+actor "HR Manager" as HRManager
 
 rectangle "Platform & Security (Web) - Data Privacy & Security" {
     usecase "UC53: Configure Data Masking & Encryption" as UC_Main
@@ -23,10 +28,9 @@ rectangle "Platform & Security (Web) - Data Privacy & Security" {
     usecase "Execute Field Encryption AES-256" as UC_EncryptDB
 
     SystemAdministrator -- UC_Main
-    DatabaseAdministrator -- UC_EncryptDB
+    HRManager -- UC_Main
     UC_Main .> UC_SelectPII : <<include>>
     UC_Main .> UC_MaskRule : <<include>>
     UC_Main .> UC_EncryptDB : <<include>>
-    UC_EncryptDB -- SecurityEngine
 }
 @enduml

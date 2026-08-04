@@ -7,15 +7,20 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Recruiter" as Recruiter
 actor "Department Manager" as DepartmentManager
 actor "HR Manager" as HRManager
-actor "Finance Manager" as FinanceManager
 
 rectangle "Recruitment & Hiring - Recruitment Pipeline" {
     usecase "UC29: Create & Approve Job Requisitions" as UC_Main
@@ -25,10 +30,9 @@ rectangle "Recruitment & Hiring - Recruitment Pipeline" {
 
     Recruiter -- UC_Main
     DepartmentManager -- UC_DraftReq
+    HRManager -- UC_ApproveBud
     UC_Main .> UC_DraftReq : <<include>>
     UC_Main .> UC_RouteChain : <<include>>
     UC_Main .> UC_ApproveBud : <<include>>
-    UC_ApproveBud -- FinanceManager
-    UC_RouteChain -- HRManager
 }
 @enduml

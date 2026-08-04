@@ -7,14 +7,20 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "HR Manager" as HRManager
-actor "Employee" as Employee
 actor "Department Manager" as DepartmentManager
+actor "Employee" as Employee
 
 rectangle "Performance & OKRs - 360 Reviews" {
     usecase "UC39: Initiate 360 Reviews" as UC_Main
@@ -23,10 +29,10 @@ rectangle "Performance & OKRs - 360 Reviews" {
     usecase "Dispatch Evaluation Forms" as UC_DispatchForms
 
     HRManager -- UC_Main
+    DepartmentManager -- UC_AssignPeers
+    Employee -- UC_DispatchForms
     UC_Main .> UC_SetupCam : <<include>>
     UC_Main .> UC_AssignPeers : <<include>>
     UC_Main .> UC_DispatchForms : <<include>>
-    UC_DispatchForms -- Employee
-    UC_DispatchForms -- DepartmentManager
 }
 @enduml

@@ -7,8 +7,14 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
@@ -22,9 +28,9 @@ rectangle "Analytics & BI Reporting - Executive Dashboards" {
     usecase "Render Retention Trends" as UC_RenderTrend
 
     HRManager -- UC_Main
+    DepartmentManager -- UC_Main
     UC_Main .> UC_CalcTurn : <<include>>
     UC_Main .> UC_GroupReas : <<include>>
     UC_Main .> UC_RenderTrend : <<include>>
-    UC_RenderTrend -- DepartmentManager
 }
 @enduml

@@ -7,12 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "HR Manager" as HRManager
+actor "Payroll Administrator" as PayrollAdministrator
 actor "System Administrator" as SystemAdministrator
 
 rectangle "Time & Attendance Management - Absence & Leave" {
@@ -22,6 +29,7 @@ rectangle "Time & Attendance Management - Absence & Leave" {
     usecase "Set Compensatory Workdays" as UC_SetComp
 
     HRManager -- UC_Main
+    PayrollAdministrator -- UC_Main
     SystemAdministrator -- UC_Main
     UC_Main .> UC_InitYear : <<include>>
     UC_Main .> UC_AddHolidays : <<include>>

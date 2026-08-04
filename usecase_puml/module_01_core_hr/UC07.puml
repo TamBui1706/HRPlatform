@@ -7,14 +7,20 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "HR Manager" as HRManager
-actor "Employee" as Employee
 actor "Department Manager" as DepartmentManager
+actor "Employee" as Employee
 
 rectangle "Core HR & Employee Management - Document Vault" {
     usecase "UC07: Track Contract Expirations" as UC_Main
@@ -23,10 +29,10 @@ rectangle "Core HR & Employee Management - Document Vault" {
     usecase "Initiate Contract Renewal" as UC_Renew
 
     HRManager -- UC_Main
+    DepartmentManager -- UC_Renew
+    Employee -- UC_Alert
     UC_Main .> UC_Scan : <<include>>
     UC_Main .> UC_Alert : <<include>>
     UC_Main .> UC_Renew : <<include>>
-    UC_Alert -- Employee
-    UC_Renew -- DepartmentManager
 }
 @enduml

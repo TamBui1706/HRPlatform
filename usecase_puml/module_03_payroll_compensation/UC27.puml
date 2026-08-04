@@ -7,14 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Payroll Administrator" as PayrollAdministrator
-actor "Banking System" as BankingSystem
-actor "Finance Manager" as FinanceManager
+actor "HR Manager" as HRManager
 
 rectangle "Payroll & Compensation - Payroll Engine" {
     usecase "UC27: Generate Bank Transfer File" as UC_Main
@@ -23,10 +28,9 @@ rectangle "Payroll & Compensation - Payroll Engine" {
     usecase "Export Encrypted Bank File" as UC_ExportFile
 
     PayrollAdministrator -- UC_Main
-    FinanceManager -- UC_ExportFile
+    HRManager -- UC_ExportFile
     UC_Main .> UC_FormatBank : <<include>>
     UC_Main .> UC_VerifyAccount : <<include>>
     UC_Main .> UC_ExportFile : <<include>>
-    UC_ExportFile -- BankingSystem
 }
 @enduml

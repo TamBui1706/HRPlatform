@@ -7,14 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "System Administrator" as SystemAdministrator
-actor "Third-Party Service" as ThirdPartyService
-actor "Audit Log System" as AuditLogSystem
+actor "HR Manager" as HRManager
 
 rectangle "Platform & Security (Web) - Integration API" {
     usecase "UC51: Manage API Keys & Webhooks" as UC_Main
@@ -23,10 +28,9 @@ rectangle "Platform & Security (Web) - Integration API" {
     usecase "Log Security Audit Event" as UC_AuditLog
 
     SystemAdministrator -- UC_Main
+    HRManager -- UC_AuditLog
     UC_Main .> UC_GenSecret : <<include>>
     UC_Main .> UC_ValWebhook : <<include>>
     UC_Main .> UC_AuditLog : <<include>>
-    UC_ValWebhook -- ThirdPartyService
-    UC_AuditLog -- AuditLogSystem
 }
 @enduml

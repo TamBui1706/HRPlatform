@@ -7,14 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "HR Manager" as HRManager
-actor "Legal Department" as LegalDepartment
-actor "Labor Inspector" as LaborInspector
+actor "System Administrator" as SystemAdministrator
 
 rectangle "Compliance & Audit - Regulatory Compliance" {
     usecase "UC58: Audit Labor Law Compliance" as UC_Main
@@ -23,10 +28,9 @@ rectangle "Compliance & Audit - Regulatory Compliance" {
     usecase "Export Regulatory Audit Report" as UC_ExportAudit
 
     HRManager -- UC_Main
-    LegalDepartment -- UC_Main
+    SystemAdministrator -- UC_Main
     UC_Main .> UC_ScanRule : <<include>>
     UC_Main .> UC_FlagRisk : <<include>>
     UC_Main .> UC_ExportAudit : <<include>>
-    UC_ExportAudit -- LaborInspector
 }
 @enduml

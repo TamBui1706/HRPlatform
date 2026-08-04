@@ -7,8 +7,14 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
@@ -24,9 +30,9 @@ rectangle "Time & Attendance Management - Shift Rostering" {
 
     DepartmentManager -- UC_Main
     HRManager -- UC_Main
+    Employee -- UC_GridAssign
     UC_Main .> UC_DefTemplates : <<include>>
     UC_Main .> UC_GridAssign : <<include>>
     UC_Main .> UC_CheckRest : <<include>>
-    UC_GridAssign -- Employee
 }
 @enduml

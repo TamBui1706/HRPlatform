@@ -7,8 +7,14 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
@@ -22,9 +28,9 @@ rectangle "Time & Attendance Management - Shift Rostering" {
     usecase "Manager Approval" as UC_MgrApprove
 
     Employee -- UC_Main
+    DepartmentManager -- UC_MgrApprove
     UC_Main .> UC_InitSwap : <<include>>
     UC_Main .> UC_PeerConfirm : <<include>>
     UC_Main .> UC_MgrApprove : <<include>>
-    UC_MgrApprove -- DepartmentManager
 }
 @enduml

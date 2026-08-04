@@ -7,14 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Payroll Administrator" as PayrollAdministrator
 actor "HR Manager" as HRManager
-actor "Banking System" as BankingSystem
 
 rectangle "Payroll & Compensation - Payroll Engine" {
     usecase "UC20: Calculate Monthly Payroll" as UC_Main
@@ -27,6 +32,5 @@ rectangle "Payroll & Compensation - Payroll Engine" {
     UC_Main .> UC_RunEngine : <<include>>
     UC_Main .> UC_TaxIns : <<include>>
     UC_Main .> UC_ApproveRollout : <<include>>
-    UC_ApproveRollout -- BankingSystem
 }
 @enduml

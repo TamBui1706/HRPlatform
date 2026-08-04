@@ -7,26 +7,32 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "HR Manager" as HRManager
 actor "Employee" as Employee
-actor "Audit Log System" as AuditLogSystem
+actor "Department Manager" as DepartmentManager
 
 rectangle "Core HR & Employee Management - Employee Directory" {
     usecase "UC01: Manage Employee Profiles" as UC_Main
     usecase "Input Personal Particulars" as UC_Input
     usecase "Upload ID Scans & Photo" as UC_UploadDoc
-    usecase "Log Audit History" as UC_Audit
+    usecase "Approve Profile Update" as UC_ApproveProfile
 
     HRManager -- UC_Main
+    Employee -- UC_Input
+    DepartmentManager -- UC_ApproveProfile
     UC_Main .> UC_Input : <<include>>
     UC_Main .> UC_UploadDoc : <<include>>
-    UC_Main .> UC_Audit : <<include>>
-    UC_Input -- Employee
-    UC_Audit -- AuditLogSystem
+    UC_Main .> UC_ApproveProfile : <<include>>
 }
 @enduml

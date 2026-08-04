@@ -7,12 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Recruiter" as Recruiter
+actor "Department Manager" as DepartmentManager
 actor "Candidate" as Candidate
 
 rectangle "Recruitment & Hiring - Recruitment Pipeline" {
@@ -22,9 +29,10 @@ rectangle "Recruitment & Hiring - Recruitment Pipeline" {
     usecase "Save to Talent Pool" as UC_SavePool
 
     Recruiter -- UC_Main
+    DepartmentManager -- UC_KanbanDrag
+    Candidate -- UC_AutoStatusEmail
     UC_Main .> UC_KanbanDrag : <<include>>
     UC_Main .> UC_AutoStatusEmail : <<include>>
     UC_Main .> UC_SavePool : <<include>>
-    UC_AutoStatusEmail -- Candidate
 }
 @enduml

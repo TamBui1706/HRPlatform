@@ -7,14 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Project Manager" as ProjectManager
-actor "Finance Manager" as FinanceManager
-actor "Client Representative" as ClientRepresentative
+actor "Department Manager" as DepartmentManager
 
 rectangle "Projects & Task Management - Financial Cost Control" {
     usecase "UC47: Manage Project Expenses & Billing" as UC_Main
@@ -23,10 +28,9 @@ rectangle "Projects & Task Management - Financial Cost Control" {
     usecase "Export Billing Summary" as UC_ExportSummary
 
     ProjectManager -- UC_Main
-    FinanceManager -- UC_DraftBill
+    DepartmentManager -- UC_DraftBill
     UC_Main .> UC_LogExpense : <<include>>
     UC_Main .> UC_DraftBill : <<include>>
     UC_Main .> UC_ExportSummary : <<include>>
-    UC_ExportSummary -- ClientRepresentative
 }
 @enduml

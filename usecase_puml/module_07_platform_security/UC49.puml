@@ -7,14 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
-actor "All Users" as AllUsers
-actor "Identity Provider (Azure AD/Google)" as IdentityProviderAzureADGoogle
-actor "Security Engine" as SecurityEngine
+actor "System Administrator" as SystemAdministrator
+actor "Employee" as Employee
 
 rectangle "Platform & Security (Web) - Authentication & IAM" {
     usecase "UC49: Authenticate User & SSO" as UC_Main
@@ -22,11 +27,10 @@ rectangle "Platform & Security (Web) - Authentication & IAM" {
     usecase "Validate MFA Code" as UC_MFA
     usecase "Issue JWT Session Token" as UC_IssueJWT
 
-    AllUsers -- UC_Main
+    SystemAdministrator -- UC_Main
+    Employee -- UC_Main
     UC_Main .> UC_VerifyToken : <<include>>
     UC_Main .> UC_MFA : <<include>>
     UC_Main .> UC_IssueJWT : <<include>>
-    UC_VerifyToken -- IdentityProviderAzureADGoogle
-    UC_IssueJWT -- SecurityEngine
 }
 @enduml

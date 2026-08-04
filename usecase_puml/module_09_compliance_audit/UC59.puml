@@ -7,26 +7,30 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "System Administrator" as SystemAdministrator
-actor "Internal Auditor" as InternalAuditor
-actor "Security Operations Center" as SecurityOperationsCenter
+actor "HR Manager" as HRManager
 
 rectangle "Compliance & Audit - Corporate Governance" {
     usecase "UC59: Inspect System Audit Logs" as UC_Main
     usecase "Filter Immutable Audit Events" as UC_FilterAudit
     usecase "Inspect Data Diff" as UC_DiffData
-    usecase "Escalate to SOC" as UC_SOCEscalate
+    usecase "Escalate Security Exception" as UC_Escalate
 
-    InternalAuditor -- UC_Main
-    SystemAdministrator -- UC_FilterAudit
+    SystemAdministrator -- UC_Main
+    HRManager -- UC_Escalate
     UC_Main .> UC_FilterAudit : <<include>>
     UC_Main .> UC_DiffData : <<include>>
-    UC_SOCEscalate .> UC_Main : <<extend>>
-    UC_SOCEscalate -- SecurityOperationsCenter
+    UC_Escalate .> UC_Main : <<extend>>
 }
 @enduml

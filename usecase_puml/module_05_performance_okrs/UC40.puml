@@ -7,14 +7,20 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Employee" as Employee
-actor "HR Manager" as HRManager
 actor "Department Manager" as DepartmentManager
+actor "HR Manager" as HRManager
 
 rectangle "Performance & OKRs - 360 Reviews" {
     usecase "UC40: Submit Peer & Self Appraisals" as UC_Main
@@ -23,10 +29,10 @@ rectangle "Performance & OKRs - 360 Reviews" {
     usecase "Submit Feedback Comments" as UC_SubComments
 
     Employee -- UC_Main
+    DepartmentManager -- UC_SubComments
+    HRManager -- UC_SubComments
     UC_Main .> UC_SelfApp : <<include>>
     UC_Main .> UC_RatePeer : <<include>>
     UC_Main .> UC_SubComments : <<include>>
-    UC_SubComments -- HRManager
-    UC_SubComments -- DepartmentManager
 }
 @enduml

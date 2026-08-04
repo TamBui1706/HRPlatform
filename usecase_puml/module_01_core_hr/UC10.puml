@@ -7,28 +7,32 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
-actor "Employee" as Employee
 actor "HR Manager" as HRManager
-actor "IT Helpdesk" as ITHelpdesk
+actor "Employee" as Employee
 actor "Department Manager" as DepartmentManager
 
 rectangle "Core HR & Employee Management - Talent Engagement" {
     usecase "UC10: Execute Onboarding Checklist" as UC_Main
     usecase "Generate Onboarding Tasks" as UC_GenTasks
-    usecase "Assign Tasks to IT/HR/Admin" as UC_AssignDepts
+    usecase "Assign Tasks to Managers" as UC_AssignDepts
     usecase "Confirm Asset Handover" as UC_ConfirmAsset
 
-    Employee -- UC_ConfirmAsset
     HRManager -- UC_Main
+    Employee -- UC_ConfirmAsset
+    DepartmentManager -- UC_AssignDepts
     UC_Main .> UC_GenTasks : <<include>>
     UC_Main .> UC_AssignDepts : <<include>>
     UC_Main .> UC_ConfirmAsset : <<include>>
-    UC_AssignDepts -- ITHelpdesk
-    UC_AssignDepts -- DepartmentManager
 }
 @enduml

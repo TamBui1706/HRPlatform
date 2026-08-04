@@ -7,14 +7,20 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Project Manager" as ProjectManager
-actor "Employee" as Employee
 actor "Department Manager" as DepartmentManager
+actor "Employee" as Employee
 
 rectangle "Projects & Task Management - Project Lifecycle" {
     usecase "UC44: Assign Team Members to Projects" as UC_Main
@@ -23,10 +29,10 @@ rectangle "Projects & Task Management - Project Lifecycle" {
     usecase "Notify Resource Assignment" as UC_NotifyAssign
 
     ProjectManager -- UC_Main
-    DepartmentManager -- UC_Main
+    DepartmentManager -- UC_SelectMem
+    Employee -- UC_NotifyAssign
     UC_Main .> UC_SelectMem : <<include>>
     UC_Main .> UC_SetAlloc : <<include>>
     UC_Main .> UC_NotifyAssign : <<include>>
-    UC_NotifyAssign -- Employee
 }
 @enduml

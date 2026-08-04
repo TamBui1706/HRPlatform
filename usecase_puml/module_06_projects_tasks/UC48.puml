@@ -7,14 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Project Manager" as ProjectManager
-actor "HR Manager" as HRManager
-actor "Executive Board" as ExecutiveBoard
+actor "Department Manager" as DepartmentManager
 
 rectangle "Projects & Task Management - Time Billing Integration" {
     usecase "UC48: Generate Project Profitability" as UC_Main
@@ -23,10 +28,9 @@ rectangle "Projects & Task Management - Time Billing Integration" {
     usecase "Render Profitability Comparison" as UC_RenderProfit
 
     ProjectManager -- UC_Main
-    HRManager -- UC_Main
+    DepartmentManager -- UC_Main
     UC_Main .> UC_CalcNet : <<include>>
     UC_Main .> UC_CompMargin : <<include>>
     UC_Main .> UC_RenderProfit : <<include>>
-    UC_RenderProfit -- ExecutiveBoard
 }
 @enduml

@@ -7,14 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
+actor "System Administrator" as SystemAdministrator
 actor "HR Manager" as HRManager
-actor "Email/SMS Gateway" as EmailSMSGateway
-actor "Employee" as Employee
 
 rectangle "Platform & Security (Web) - Notifications Engine" {
     usecase "UC52: Configure Email & SMS Templates" as UC_Main
@@ -22,11 +27,10 @@ rectangle "Platform & Security (Web) - Notifications Engine" {
     usecase "Filter Recipient Scope" as UC_FilterScope
     usecase "Dispatch Email/SMS Message" as UC_DispatchMail
 
+    SystemAdministrator -- UC_Main
     HRManager -- UC_Main
     UC_Main .> UC_RenderTemp : <<include>>
     UC_Main .> UC_FilterScope : <<include>>
     UC_Main .> UC_DispatchMail : <<include>>
-    UC_DispatchMail -- EmailSMSGateway
-    UC_DispatchMail -- Employee
 }
 @enduml

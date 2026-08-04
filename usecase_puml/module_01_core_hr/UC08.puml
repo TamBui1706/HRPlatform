@@ -7,13 +7,19 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
-actor "HR Manager" as HRManager
 actor "Employee" as Employee
+actor "HR Manager" as HRManager
 
 rectangle "Core HR & Employee Management - Employee Directory" {
     usecase "UC08: Manage Academic Credentials" as UC_Main
@@ -21,8 +27,8 @@ rectangle "Core HR & Employee Management - Employee Directory" {
     usecase "Upload Scan Copy" as UC_UploadFile
     usecase "Verify Credential Validity" as UC_VerifyCred
 
-    Employee -- UC_InputCred
-    HRManager -- UC_Main
+    Employee -- UC_Main
+    HRManager -- UC_VerifyCred
     UC_Main .> UC_InputCred : <<include>>
     UC_Main .> UC_UploadFile : <<include>>
     UC_Main .> UC_VerifyCred : <<include>>

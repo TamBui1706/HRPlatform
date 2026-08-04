@@ -7,15 +7,20 @@ skinparam actorStyle stickman
 skinparam ArrowColor #334155
 skinparam ActorBorderColor #1d4ed8
 skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
 skinparam UsecaseBorderColor #0f172a
 skinparam UsecaseBackgroundColor #f8fafc
+skinparam UsecaseFontColor #0f172a
+skinparam UsecaseFontStyle bold
+
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
 
 actor "Recruiter" as Recruiter
-actor "Candidate" as Candidate
 actor "Department Manager" as DepartmentManager
-actor "Calendar Service" as CalendarService
+actor "Candidate" as Candidate
 
 rectangle "Recruitment & Hiring - Candidate Connect" {
     usecase "UC33: Schedule Interviews" as UC_Main
@@ -24,11 +29,10 @@ rectangle "Recruitment & Hiring - Candidate Connect" {
     usecase "Send Interview Invitation" as UC_SendInvite
 
     Recruiter -- UC_Main
-    DepartmentManager -- UC_Main
+    DepartmentManager -- UC_CheckCal
+    Candidate -- UC_SendInvite
     UC_Main .> UC_CheckCal : <<include>>
     UC_Main .> UC_GenLink : <<include>>
     UC_Main .> UC_SendInvite : <<include>>
-    UC_CheckCal -- CalendarService
-    UC_SendInvite -- Candidate
 }
 @enduml
