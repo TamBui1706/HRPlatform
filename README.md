@@ -151,6 +151,30 @@ flowchart LR
 
 ---
 
+## 🏊 Layer 1 Core Business Process Swimlane Diagrams
+
+### 1. End-to-End Recruitment, Hiring & Employee Onboarding Workflow
+**Description:** Full lifecycle swimlane process covering Job Requisition Approval, Automated CV Screening, Interview Scorecards, Digital Offer Letters, and Account Onboarding.
+
+![End-to-End Recruitment, Hiring & Employee Onboarding Workflow](swimpool/swimpool_01_recruitment_onboarding.png)
+
+---
+
+### 2. Time Attendance, Timesheet Approval & Monthly Payroll Disbursement Workflow
+**Description:** Monthly operational swimlane workflow covering Daily Attendance Punching, Manager Timesheet Verification & Locking, Automated Payroll Calculation (Tax/BHXH), and Direct Bank Disbursement.
+
+![Time Attendance, Timesheet Approval & Monthly Payroll Disbursement Workflow](swimpool/swimpool_02_time_payroll_disbursement.png)
+
+---
+
+### 3. 360-Degree Performance Evaluation & Strategic Goals/OKR Calibration Workflow
+**Description:** Strategic performance management workflow covering Company OKR Cascade, 360-Degree Feedback & Self-Appraisal, Manager 1-on-1 Coaching, Executive Calibration, and Bonus/Kudos Distribution.
+
+![360-Degree Performance Evaluation & Strategic Goals/OKR Calibration Workflow](swimpool/swimpool_03_performance_okrs_appraisal.png)
+
+
+---
+
 ## 📋 60 Detailed Use Case Diagrams (UC01 - UC60)
 
 

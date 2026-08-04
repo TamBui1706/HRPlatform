@@ -1,0 +1,60 @@
+@startuml
+title 360-Degree Performance Evaluation & Strategic Goals/OKR Calibration Workflow
+
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam ActivityBorderColor #0f172a
+skinparam ActivityBackgroundColor #f8fafc
+skinparam ActivityFontColor #0f172a
+skinparam ActivityFontSize 12
+skinparam ActivityFontStyle bold
+
+skinparam SwimlaneBorderColor #1d4ed8
+skinparam SwimlaneWidth 230
+skinparam SwimlaneTitleFontColor #1e3a8a
+skinparam SwimlaneTitleFontSize 14
+skinparam SwimlaneTitleFontStyle bold
+
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
+
+|HR Manager|
+start
+:Initialize Annual 360 Performance Review Campaign;
+:Configure Competency Rating Grids & Evaluation Weights;
+
+|Department Manager|
+:Define Department Strategic Objectives & OKRs;
+:Cascade Goals & Link Individual Key Results to Team;
+
+|Employee|
+:Log Monthly Progress Updates on Key Results;
+:Complete Self-Appraisal Form & Accomplishment List;
+:Submit Peer Appraisal Feedback for Assigned Colleagues;
+
+|Department Manager|
+:Review Employee Self-Appraisal & Peer Feedback;
+:Schedule 1-on-1 Performance Coaching Session;
+:Conduct 1-on-1 Review & Discuss Accomplishments;
+:Score Employee Performance Competencies;
+:Submit Manager Evaluation & Rating Recommendation;
+
+|HR Manager|
+:Conduct Company-wide Performance Calibration Meeting;
+:Review Overall Rating Distribution Curve;
+if (Calibration Balanced?) then (Approved)
+  :Finalize Performance Scores & Merit Increases;
+else (Outlier)
+  :Adjust Manager Rating with Justification;
+endif
+
+|HR Manager|
+:Approve Performance Bonus Allocations & Kudos Points;
+:Publish Official Appraisal Results to Employees;
+
+|Employee|
+:View Final Performance Scorecard & Feedback;
+:Accept Bonus Allocation & Peer Kudos Points;
+:Update Individual Development Plan (IDP) for Next Cycle;
+stop
+@enduml
