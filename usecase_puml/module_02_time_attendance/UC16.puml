@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Employee" as Employee
+actor "Department Manager" as DepartmentManager
+
+rectangle "Time & Attendance Management - Shift Rostering" {
+    usecase "UC16: Request Shift Swap" as UC_Main
+    usecase "Initiate Shift Swap Request" as UC_InitSwap
+    usecase "Peer Confirmation" as UC_PeerConfirm
+    usecase "Manager Approval" as UC_MgrApprove
+
+    Employee -- UC_Main
+    UC_Main .> UC_InitSwap : <<include>>
+    UC_Main .> UC_PeerConfirm : <<include>>
+    UC_Main .> UC_MgrApprove : <<include>>
+    UC_MgrApprove -- DepartmentManager
+}
+@enduml

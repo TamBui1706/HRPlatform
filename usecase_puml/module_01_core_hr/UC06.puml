@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Employee" as Employee
+actor "HR Manager" as HRManager
+actor "E-Signature Provider" as ESignatureProvider
+
+rectangle "Core HR & Employee Management - Document Vault" {
+    usecase "UC06: Upload & Sign E-Contracts" as UC_Main
+    usecase "Render Contract PDF" as UC_Render
+    usecase "Apply E-Signature" as UC_Sign
+    usecase "Timestamp & Archive Document" as UC_Vault
+
+    HRManager -- UC_Render
+    Employee -- UC_Main
+    UC_Main .> UC_Render : <<include>>
+    UC_Main .> UC_Sign : <<include>>
+    UC_Main .> UC_Vault : <<include>>
+    UC_Sign -- ESignatureProvider
+}
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Project Manager" as ProjectManager
+actor "Department Manager" as DepartmentManager
+actor "Client Representative" as ClientRepresentative
+
+rectangle "Projects & Task Management - Project Lifecycle" {
+    usecase "UC43: Create Projects & Milestones" as UC_Main
+    usecase "Set Project Parameters" as UC_SetParam
+    usecase "Define Project Milestones" as UC_DefMiles
+    usecase "Configure Project Workflow" as UC_ConfWork
+
+    ProjectManager -- UC_Main
+    DepartmentManager -- UC_Main
+    UC_Main .> UC_SetParam : <<include>>
+    UC_Main .> UC_DefMiles : <<include>>
+    UC_Main .> UC_ConfWork : <<include>>
+    UC_DefMiles -- ClientRepresentative
+}
+@enduml

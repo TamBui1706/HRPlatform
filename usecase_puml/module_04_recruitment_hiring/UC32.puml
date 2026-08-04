@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Recruiter" as Recruiter
+actor "Candidate" as Candidate
+
+rectangle "Recruitment & Hiring - Recruitment Pipeline" {
+    usecase "UC32: Track Candidate Pipeline" as UC_Main
+    usecase "Drag-Drop Pipeline Stage" as UC_KanbanDrag
+    usecase "Send Auto Status Email" as UC_AutoStatusEmail
+    usecase "Save to Talent Pool" as UC_SavePool
+
+    Recruiter -- UC_Main
+    UC_Main .> UC_KanbanDrag : <<include>>
+    UC_Main .> UC_AutoStatusEmail : <<include>>
+    UC_Main .> UC_SavePool : <<include>>
+    UC_AutoStatusEmail -- Candidate
+}
+@enduml

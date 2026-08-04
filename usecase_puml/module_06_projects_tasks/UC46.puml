@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Employee" as Employee
+actor "Project Manager" as ProjectManager
+
+rectangle "Projects & Task Management - Time Billing Integration" {
+    usecase "UC46: Log Billable Hours per Project" as UC_Main
+    usecase "Select Project & Task" as UC_SelectTask
+    usecase "Input Worked Hours" as UC_InputHours
+    usecase "Flag Billable Status" as UC_FlagBillable
+
+    Employee -- UC_Main
+    UC_Main .> UC_SelectTask : <<include>>
+    UC_Main .> UC_InputHours : <<include>>
+    UC_Main .> UC_FlagBillable : <<include>>
+    UC_FlagBillable -- ProjectManager
+}
+@enduml

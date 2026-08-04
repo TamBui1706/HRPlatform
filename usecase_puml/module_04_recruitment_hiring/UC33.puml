@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Recruiter" as Recruiter
+actor "Candidate" as Candidate
+actor "Department Manager" as DepartmentManager
+actor "Calendar Service" as CalendarService
+
+rectangle "Recruitment & Hiring - Candidate Connect" {
+    usecase "UC33: Schedule Interviews" as UC_Main
+    usecase "Check Calendar Availability" as UC_CheckCal
+    usecase "Generate Online Meeting Link" as UC_GenLink
+    usecase "Send Interview Invitation" as UC_SendInvite
+
+    Recruiter -- UC_Main
+    DepartmentManager -- UC_Main
+    UC_Main .> UC_CheckCal : <<include>>
+    UC_Main .> UC_GenLink : <<include>>
+    UC_Main .> UC_SendInvite : <<include>>
+    UC_CheckCal -- CalendarService
+    UC_SendInvite -- Candidate
+}
+@enduml

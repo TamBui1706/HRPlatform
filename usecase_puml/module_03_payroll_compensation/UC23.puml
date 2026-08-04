@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Employee" as Employee
+actor "Payroll Administrator" as PayrollAdministrator
+actor "Finance Manager" as FinanceManager
+
+rectangle "Payroll & Compensation - Benefits Admin" {
+    usecase "UC23: Submit Flex Benefit Claims" as UC_Main
+    usecase "Check Flex Credit Limit" as UC_CheckCredit
+    usecase "Upload Financial Invoice" as UC_UploadInvoice
+    usecase "Approve Benefit Reimbursement" as UC_ApproveBenefit
+
+    Employee -- UC_Main
+    UC_Main .> UC_CheckCredit : <<include>>
+    UC_Main .> UC_UploadInvoice : <<include>>
+    UC_Main .> UC_ApproveBenefit : <<include>>
+    UC_ApproveBenefit -- PayrollAdministrator
+    UC_ApproveBenefit -- FinanceManager
+}
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Employee" as Employee
+actor "Department Manager" as DepartmentManager
+actor "HR Manager" as HRManager
+
+rectangle "Time & Attendance Management - Absence & Leave" {
+    usecase "UC13: Submit & Approve Leave" as UC_Main
+    usecase "Check Leave Balance" as UC_CheckBal
+    usecase "Upload Supporting File" as UC_UploadFile
+    usecase "Deduct Leave Entitlement" as UC_DeductLeave
+
+    Employee -- UC_Main
+    DepartmentManager -- UC_Main
+    UC_Main .> UC_CheckBal : <<include>>
+    UC_Main .> UC_UploadFile : <<include>>
+    UC_Main .> UC_DeductLeave : <<include>>
+    UC_DeductLeave -- HRManager
+}
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "HR Manager" as HRManager
+actor "System Administrator" as SystemAdministrator
+
+rectangle "Core HR & Employee Management - Org Architecture" {
+    usecase "UC02: Manage Org Hierarchy" as UC_Main
+    usecase "Create Org Unit" as UC_CreateDept
+    usecase "Set Reporting Hierarchy" as UC_SetLine
+    usecase "Assign Department Head" as UC_AssignHead
+
+    HRManager -- UC_Main
+    SystemAdministrator -- UC_Main
+    UC_Main .> UC_CreateDept : <<include>>
+    UC_Main .> UC_SetLine : <<include>>
+    UC_Main .> UC_AssignHead : <<include>>
+}
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "HR Manager" as HRManager
+actor "Payroll Administrator" as PayrollAdministrator
+actor "Department Manager" as DepartmentManager
+
+rectangle "Analytics & BI Reporting - Reporting Engine" {
+    usecase "UC54: Build Custom HR Reports" as UC_Main
+    usecase "Select Data Source" as UC_SelectSrc
+    usecase "Drag-Drop Field Layout" as UC_FieldLayout
+    usecase "Export Report File" as UC_ExportFile
+
+    HRManager -- UC_Main
+    PayrollAdministrator -- UC_Main
+    UC_Main .> UC_SelectSrc : <<include>>
+    UC_Main .> UC_FieldLayout : <<include>>
+    UC_Main .> UC_ExportFile : <<include>>
+    UC_ExportFile -- DepartmentManager
+}
+@enduml

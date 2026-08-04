@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Candidate" as Candidate
+actor "Recruiter" as Recruiter
+
+rectangle "Recruitment & Hiring - Onboarding Hub" {
+    usecase "UC36: Collect Pre-Hire Information" as UC_Main
+    usecase "Submit Pre-hire Form" as UC_FormFill
+    usecase "Upload ID & Certificates" as UC_UploadScans
+    usecase "Verify Background Documents" as UC_VerifyDocs
+
+    Candidate -- UC_Main
+    UC_Main .> UC_FormFill : <<include>>
+    UC_Main .> UC_UploadScans : <<include>>
+    UC_Main .> UC_VerifyDocs : <<include>>
+    UC_VerifyDocs -- Recruiter
+}
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Payroll Administrator" as PayrollAdministrator
+actor "HR Manager" as HRManager
+actor "Banking System" as BankingSystem
+
+rectangle "Payroll & Compensation - Payroll Engine" {
+    usecase "UC20: Calculate Monthly Payroll" as UC_Main
+    usecase "Run Automatic Payroll Engine" as UC_RunEngine
+    usecase "Compute Tax & Insurance" as UC_TaxIns
+    usecase "Approve Payroll Rollout" as UC_ApproveRollout
+
+    PayrollAdministrator -- UC_Main
+    HRManager -- UC_ApproveRollout
+    UC_Main .> UC_RunEngine : <<include>>
+    UC_Main .> UC_TaxIns : <<include>>
+    UC_Main .> UC_ApproveRollout : <<include>>
+    UC_ApproveRollout -- BankingSystem
+}
+@enduml

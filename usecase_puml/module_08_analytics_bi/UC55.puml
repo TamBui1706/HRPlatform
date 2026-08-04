@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "HR Manager" as HRManager
+actor "Department Manager" as DepartmentManager
+actor "Email Gateway" as EmailGateway
+
+rectangle "Analytics & BI Reporting - Reporting Engine" {
+    usecase "UC55: Schedule Automated Report Delivery" as UC_Main
+    usecase "Set Cron Schedule" as UC_SetCron
+    usecase "Configure Recipient List" as UC_ConfRecip
+    usecase "Auto-Generate & Send PDF" as UC_SendPDF
+
+    HRManager -- UC_Main
+    UC_Main .> UC_SetCron : <<include>>
+    UC_Main .> UC_ConfRecip : <<include>>
+    UC_Main .> UC_SendPDF : <<include>>
+    UC_SendPDF -- DepartmentManager
+    UC_SendPDF -- EmailGateway
+}
+@enduml

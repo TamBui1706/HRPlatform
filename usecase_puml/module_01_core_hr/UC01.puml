@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "HR Manager" as HRManager
+actor "Employee" as Employee
+actor "Audit Log System" as AuditLogSystem
+
+rectangle "Core HR & Employee Management - Employee Directory" {
+    usecase "UC01: Manage Employee Profiles" as UC_Main
+    usecase "Input Personal Particulars" as UC_Input
+    usecase "Upload ID Scans & Photo" as UC_UploadDoc
+    usecase "Log Audit History" as UC_Audit
+
+    HRManager -- UC_Main
+    UC_Main .> UC_Input : <<include>>
+    UC_Main .> UC_UploadDoc : <<include>>
+    UC_Main .> UC_Audit : <<include>>
+    UC_Input -- Employee
+    UC_Audit -- AuditLogSystem
+}
+@enduml

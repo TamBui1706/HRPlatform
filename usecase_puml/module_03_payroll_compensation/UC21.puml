@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Payroll Administrator" as PayrollAdministrator
+actor "Employee" as Employee
+
+rectangle "Payroll & Compensation - Payroll Engine" {
+    usecase "UC21: Generate & Distribute Payslips" as UC_Main
+    usecase "Encrypt Payslip PDF" as UC_EncryptPdf
+    usecase "Send Email Payslips" as UC_SendMail
+    usecase "Confirm Payslip Receipt" as UC_ConfirmRec
+
+    PayrollAdministrator -- UC_Main
+    UC_Main .> UC_EncryptPdf : <<include>>
+    UC_Main .> UC_SendMail : <<include>>
+    UC_Main .> UC_ConfirmRec : <<include>>
+    UC_ConfirmRec -- Employee
+}
+@enduml

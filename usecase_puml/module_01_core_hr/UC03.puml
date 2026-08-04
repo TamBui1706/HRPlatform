@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "HR Manager" as HRManager
+actor "Department Manager" as DepartmentManager
+
+rectangle "Core HR & Employee Management - Org Architecture" {
+    usecase "UC03: Define Job Grades & Position Matrix" as UC_Main
+    usecase "Define Grade Levels" as UC_Grade
+    usecase "Create Job Title Code" as UC_JobCode
+    usecase "Upload Job Description" as UC_JD
+
+    HRManager -- UC_Main
+    DepartmentManager -- UC_Main
+    UC_Main .> UC_Grade : <<include>>
+    UC_Main .> UC_JobCode : <<include>>
+    UC_Main .> UC_JD : <<include>>
+}
+@enduml

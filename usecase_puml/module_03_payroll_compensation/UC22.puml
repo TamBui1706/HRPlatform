@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Payroll Administrator" as PayrollAdministrator
+actor "Employee" as Employee
+actor "Social Insurance Authority" as SocialInsuranceAuthority
+
+rectangle "Payroll & Compensation - Benefits Admin" {
+    usecase "UC22: Manage BHXH Enrollments" as UC_Main
+    usecase "Generate BHXH Declaration" as UC_BHXHDecl
+    usecase "Manage Health Insurance Plan" as UC_HealthPlan
+    usecase "Export Social Insurance File" as UC_ExportBHXH
+
+    PayrollAdministrator -- UC_Main
+    Employee -- UC_HealthPlan
+    UC_Main .> UC_BHXHDecl : <<include>>
+    UC_Main .> UC_HealthPlan : <<include>>
+    UC_Main .> UC_ExportBHXH : <<include>>
+    UC_ExportBHXH -- SocialInsuranceAuthority
+}
+@enduml

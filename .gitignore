@@ -1,0 +1,26 @@
+# Byte-compiled / Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.py
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# IDE & OS Metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs & Temporary Files
+*.log
+*.tmp
+scratch/
+
+# PlantUML JAR runtime cache (Optional)
+# plantuml.jar

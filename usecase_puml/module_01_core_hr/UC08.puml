@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "HR Manager" as HRManager
+actor "Employee" as Employee
+
+rectangle "Core HR & Employee Management - Employee Directory" {
+    usecase "UC08: Manage Academic Credentials" as UC_Main
+    usecase "Input Degree & Certificate Info" as UC_InputCred
+    usecase "Upload Scan Copy" as UC_UploadFile
+    usecase "Verify Credential Validity" as UC_VerifyCred
+
+    Employee -- UC_InputCred
+    HRManager -- UC_Main
+    UC_Main .> UC_InputCred : <<include>>
+    UC_Main .> UC_UploadFile : <<include>>
+    UC_Main .> UC_VerifyCred : <<include>>
+}
+@enduml

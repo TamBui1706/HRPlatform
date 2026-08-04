@@ -1,0 +1,31 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ArrowColor #334155
+skinparam ActorBorderColor #1d4ed8
+skinparam ActorBackgroundColor #ffffff
+skinparam UsecaseBorderColor #0f172a
+skinparam UsecaseBackgroundColor #f8fafc
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+
+actor "Employee" as Employee
+actor "HR Manager" as HRManager
+actor "Ethics Committee" as EthicsCommittee
+
+rectangle "Compliance & Audit - Corporate Governance" {
+    usecase "UC60: Report Policy Violations" as UC_Main
+    usecase "Fill Anonymous Complaint Form" as UC_FillAnon
+    usecase "Strip Metadata & Encrypt File" as UC_StripExif
+    usecase "Review Grievance Ticket" as UC_ReviewTicket
+
+    Employee -- UC_Main
+    UC_Main .> UC_FillAnon : <<include>>
+    UC_Main .> UC_StripExif : <<include>>
+    UC_ReviewTicket -- EthicsCommittee
+    UC_ReviewTicket -- HRManager
+}
+@enduml
