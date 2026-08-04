@@ -151,476 +151,538 @@ flowchart LR
 
 ---
 
-## 🏊 Layer 1 Core Business Process Swimlane Diagrams
+## Swimlane Diagrams
 
-### 1. End-to-End Recruitment, Hiring & Employee Onboarding Workflow
-**Description:** Full lifecycle swimlane process covering Job Requisition Approval, Automated CV Screening, Interview Scorecards, Digital Offer Letters, and Account Onboarding.
 
-![End-to-End Recruitment, Hiring & Employee Onboarding Workflow](swimpool/swimpool_01_recruitment_onboarding.png)
+### Core HR
 
----
+**Description:** End-to-end employee lifecycle workflow covering Profile Registration, Document Verification, IT Account Provisioning, Probationary Assessment, and Offboarding.
 
-### 2. Time Attendance, Timesheet Approval & Monthly Payroll Disbursement Workflow
-**Description:** Monthly operational swimlane workflow covering Daily Attendance Punching, Manager Timesheet Verification & Locking, Automated Payroll Calculation (Tax/BHXH), and Direct Bank Disbursement.
-
-![Time Attendance, Timesheet Approval & Monthly Payroll Disbursement Workflow](swimpool/swimpool_02_time_payroll_disbursement.png)
+![Employee Lifecycle & Profile Management Workflow](swimlane/employee-lifecycle.png)
 
 ---
 
-### 3. 360-Degree Performance Evaluation & Strategic Goals/OKR Calibration Workflow
-**Description:** Strategic performance management workflow covering Company OKR Cascade, 360-Degree Feedback & Self-Appraisal, Manager 1-on-1 Coaching, Executive Calibration, and Bonus/Kudos Distribution.
+### Workforce Tracking
 
-![360-Degree Performance Evaluation & Strategic Goals/OKR Calibration Workflow](swimpool/swimpool_03_performance_okrs_appraisal.png)
+**Description:** Workforce telemetry workflow covering Workstation Agent Logging, Idle Time Detection, GPS Geofenced Clock-in, Field Service Dispatch, and E-Sign Audit.
 
-
----
-
-## 📋 60 Detailed Use Case Diagrams (UC01 - UC60)
-
-
-
-# 🏢 Module: Core HR & Employee Management
-
-### UC01: Manage Employee Profiles
-**Description:** Create, update, and manage employee personal particulars, academic background, and emergency contact information.
-
-![UC01: Manage Employee Profiles](usecase_images/module_01_core_hr/UC01.png)
+![Workstation Activity & Geofenced Field Operations Workflow](swimlane/workforce.png)
 
 ---
 
-### UC02: Manage Org Hierarchy & Departments
-**Description:** Configure company organization charts, department trees, branch locations, and managerial reporting lines.
+### Recruitment
 
-![UC02: Manage Org Hierarchy & Departments](usecase_images/module_01_core_hr/UC02.png)
+**Description:** Talent acquisition workflow covering Job Requisition Approval, Automated CV Parsing, Technical Interview Scorecards, Digital Offer Letters, and Pre-Hire Setup.
 
----
-
-### UC03: Define Job Grades & Position Matrix
-**Description:** Define standard job grade structures, standardized position codes, and job description (JD) dictionaries.
-
-![UC03: Define Job Grades & Position Matrix](usecase_images/module_01_core_hr/UC03.png)
+![Recruitment Requisition, CV Screening & Hiring Workflow](swimlane/recruitment-hiring.png)
 
 ---
 
-### UC04: Process Employee Transfers & Promotions
-**Description:** Execute employee department transfers, job promotions, location changes, and title updates.
+### Time & Attendance
 
-![UC04: Process Employee Transfers & Promotions](usecase_images/module_01_core_hr/UC04.png)
+**Description:** Time management workflow covering Daily Clock-in/out, Overtime & Leave Requests, Manager Approvals, and Monthly Timesheet Verification.
 
----
-
-### UC05: Update Probation & Offboarding Status
-**Description:** Transition employees from probation to official status, or process resignation and lock offboarded user accounts.
-
-![UC05: Update Probation & Offboarding Status](usecase_images/module_01_core_hr/UC05.png)
+![Attendance Punching, Timesheet Approval & Leave Request Workflow](swimlane/attendance-leave.png)
 
 ---
 
-### UC06: Upload & Sign Employee E-Contracts
-**Description:** Sign employment contracts digitally with legally binding e-signatures and archive them in the secure Document Vault.
+### Payroll & Benefits
 
-![UC06: Upload & Sign Employee E-Contracts](usecase_images/module_01_core_hr/UC06.png)
+**Description:** Payroll administration workflow covering Timesheet Import, Gross-to-Net Computation, Tax/BHXH Deductions, HR Audit, and Direct Bank Deposit Batch File Generation.
 
----
-
-### UC07: Track Contract Expirations & Renewals
-**Description:** Automatically track expiring employment contracts to trigger renewal workflows or termination notices.
-
-![UC07: Track Contract Expirations & Renewals](usecase_images/module_01_core_hr/UC07.png)
+![Monthly Payroll Computation & Direct Deposit Disbursement Workflow](swimlane/payroll.png)
 
 ---
 
-### UC08: Manage Academic Credentials & Skills
-**Description:** Maintain records of academic degrees, professional certifications, and employee skill profiles.
+### Performance
 
-![UC08: Manage Academic Credentials & Skills](usecase_images/module_01_core_hr/UC08.png)
+**Description:** Strategic talent appraisal workflow covering Corporate OKR Cascade, 360-Degree Feedback & Self-Appraisal, Manager 1-on-1 Coaching, Executive Calibration, and Bonus Distribution.
 
----
-
-### UC09: Register Tax Dependents
-**Description:** Register tax dependents (children, elderly parents) for personal income tax deduction compliance.
-
-![UC09: Register Tax Dependents](usecase_images/module_01_core_hr/UC09.png)
+![360 Performance Appraisal & OKR Calibration Workflow](swimlane/performance.png)
 
 ---
 
-### UC10: Execute Onboarding Task Checklist
-**Description:** Track and complete new-hire onboarding checklists including IT asset provisioning, email setup, and workspace allocation.
+### Platform
 
-![UC10: Execute Onboarding Task Checklist](usecase_images/module_01_core_hr/UC10.png)
+**Description:** Platform security workflow covering User Login Request, SSO Identity Verification, Multi-Factor Authentication (MFA), and Fine-Grained Role Permission Enforcement.
+
+![Single Sign-On (SSO) & Role-Based Access Control (RBAC) Workflow](swimlane/user-access.png)
+
+---
+
+### Compliance
+
+**Description:** Compliance management workflow covering Policy Definition, Mandatory Staff Sign-off, PII Data Masking, Real-time Security Event Detection, and Audit Trail Reporting.
+
+![Corporate Governance & Security Audit Trail Workflow](swimlane/compliance.png)
+
+---
+
+### Analytics
+
+**Description:** Analytics workflow covering Drag-and-Drop Filter Selection, Database Aggregation, Dynamic Chart Rendering, Executive Metric Auditing, and Automated PDF/Excel Delivery.
+
+![Executive Dashboard & Custom BI Report Generation Workflow](swimlane/analyze-report.png)
+
+---
+
+### Projects
+
+**Description:** Project management workflow covering Project Creation, Member Capacity Allocation, Billable Timesheet Logging, Labor Cost Analysis, and Client Invoicing.
+
+![Project Resource Allocation & Labor Cost Tracking Workflow](swimlane/project-management.png)
 
 ---
 
 
-# 🏢 Module: Time & Attendance Management
+## 60 Detailed Use Case Diagrams (UC01 - UC60)
 
-### UC11: Record Web & Biometrics Attendance
-**Description:** Capture daily employee clock-in and clock-out timestamps via web application or biometrics hardware.
 
-![UC11: Record Web & Biometrics Attendance](usecase_images/module_02_time_attendance/UC11.png)
+# Module: Core HR & Employee Management
 
----
+### UC01: Register New Employee Profile
+**Description:** Register a new employee profile with personal particulars, job classification, and emergency contacts.
 
-### UC12: Submit & Approve Overtime Requests
-**Description:** Create overtime (OT) requests and route them to managers for approval and multiplier calculation.
-
-![UC12: Submit & Approve Overtime Requests](usecase_images/module_02_time_attendance/UC12.png)
+![UC01: Register New Employee Profile](usecase_images/module_01_core_hr/UC01.png)
 
 ---
 
-### UC13: Submit & Approve Leave Requests
-**Description:** Submit annual leave, sick leave, maternity leave, or unpaid leave requests for manager approval.
+### UC02: Maintain Employee Personal Directory
+**Description:** Access and review personal employee profile information, academic records, and employment history.
 
-![UC13: Submit & Approve Leave Requests](usecase_images/module_02_time_attendance/UC13.png)
-
----
-
-### UC14: Check Leave Balance & Absence History
-**Description:** View real-time annual leave balances, accrued seniority leave days, and historical leave request records.
-
-![UC14: Check Leave Balance & Absence History](usecase_images/module_02_time_attendance/UC14.png)
+![UC02: Maintain Employee Personal Directory](usecase_images/module_01_core_hr/UC02.png)
 
 ---
 
-### UC15: Create Shift Schedules & Rosters
-**Description:** Build and publish weekly or monthly shift rosters (morning, afternoon, night shifts) for team members.
+### UC03: Request Profile Data Update
+**Description:** Submit updates for residential address, contact number, bank account details, and dependent info.
 
-![UC15: Create Shift Schedules & Rosters](usecase_images/module_02_time_attendance/UC15.png)
-
----
-
-### UC16: Request Shift Swap & Replacement
-**Description:** Initiate shift swap requests between peer employees for manager review and schedule updates.
-
-![UC16: Request Shift Swap & Replacement](usecase_images/module_02_time_attendance/UC16.png)
+![UC03: Request Profile Data Update](usecase_images/module_01_core_hr/UC03.png)
 
 ---
 
-### UC17: Submit Attendance Discrepancy Explanation
-**Description:** Submit attendance adjustment explanations for missed punches, hardware failures, or business trips.
+### UC04: Upload Personnel Contract Document
+**Description:** Upload employment contracts, degree certificates, and tax registration documents to document vault.
 
-![UC17: Submit Attendance Discrepancy Explanation](usecase_images/module_02_time_attendance/UC17.png)
-
----
-
-### UC18: Verify & Approve Team Timesheets
-**Description:** Review, resolve anomalies, and lock monthly team timesheets before payroll processing.
-
-![UC18: Verify & Approve Team Timesheets](usecase_images/module_02_time_attendance/UC18.png)
+![UC04: Upload Personnel Contract Document](usecase_images/module_01_core_hr/UC04.png)
 
 ---
 
-### UC19: Configure Public Holidays & Work Calendar
-**Description:** Configure annual public holidays, paid leave days, and standard working day calendars.
+### UC05: Access Confidential Document Vault
+**Description:** Inspect, verify, and retrieve archived employment agreements and legal records.
 
-![UC19: Configure Public Holidays & Work Calendar](usecase_images/module_02_time_attendance/UC19.png)
-
----
-
-
-# 🏢 Module: Payroll & Compensation
-
-### UC20: Calculate Monthly Payroll & Net Salary
-**Description:** Execute the automated payroll engine to compute gross salary, net pay, tax withholdings, and statutory insurance.
-
-![UC20: Calculate Monthly Payroll & Net Salary](usecase_images/module_03_payroll_compensation/UC20.png)
+![UC05: Access Confidential Document Vault](usecase_images/module_01_core_hr/UC05.png)
 
 ---
 
-### UC21: Generate & Distribute Digital Payslips
-**Description:** Automatically issue password-protected digital payslips to employees via web portal and email.
+### UC06: Configure Organizational Department Structure
+**Description:** Establish new business units, department branches, and parent-child organizational trees.
 
-![UC21: Generate & Distribute Digital Payslips](usecase_images/module_03_payroll_compensation/UC21.png)
-
----
-
-### UC22: Manage BHXH & Insurance Enrollments
-**Description:** Manage social insurance (BHXH), health insurance enrollments, and statutory contribution reporting.
-
-![UC22: Manage BHXH & Insurance Enrollments](usecase_images/module_03_payroll_compensation/UC22.png)
+![UC06: Configure Organizational Department Structure](usecase_images/module_01_core_hr/UC06.png)
 
 ---
 
-### UC23: Submit & Process Flex Benefit Claims
-**Description:** Submit flexible benefit reimbursement claims (medical, education, wellness) with VAT invoice proof.
+### UC07: Define Job Positions & Salary Bands
+**Description:** Define job titles, seniority levels, responsibilities, and associated pay grade ranges.
 
-![UC23: Submit & Process Flex Benefit Claims](usecase_images/module_03_payroll_compensation/UC23.png)
-
----
-
-### UC24: Configure Tax Brackets & Insurance Rules
-**Description:** Configure progressive personal income tax brackets, deduction thresholds, and insurance contribution rates.
-
-![UC24: Configure Tax Brackets & Insurance Rules](usecase_images/module_03_payroll_compensation/UC24.png)
+![UC07: Define Job Positions & Salary Bands](usecase_images/module_01_core_hr/UC07.png)
 
 ---
 
-### UC25: Calculate Performance Bonuses & Commissions
-**Description:** Compute performance bonuses, holiday bonuses, and tiered sales commissions based on KPI targets.
+### UC08: Visualize Company Organization Chart
+**Description:** Render interactive graphical organizational chart showing manager reporting lines and team structure.
 
-![UC25: Calculate Performance Bonuses & Commissions](usecase_images/module_03_payroll_compensation/UC25.png)
-
----
-
-### UC26: Manage Allowances & Salary Deductions
-**Description:** Configure recurring allowances (meal, transport, phone) and voluntary or statutory salary deductions.
-
-![UC26: Manage Allowances & Salary Deductions](usecase_images/module_03_payroll_compensation/UC26.png)
+![UC08: Visualize Company Organization Chart](usecase_images/module_01_core_hr/UC08.png)
 
 ---
 
-### UC27: Generate Bank Payroll Transfer File
-**Description:** Export bank-format batch transfer files (Excel/CSV) for direct salary disbursement.
+### UC09: Publish Internal Communication Announcement
+**Description:** Broadcast corporate announcements, policy revisions, and news notifications across company portal.
 
-![UC27: Generate Bank Payroll Transfer File](usecase_images/module_03_payroll_compensation/UC27.png)
+![UC09: Publish Internal Communication Announcement](usecase_images/module_01_core_hr/UC09.png)
 
 ---
 
-### UC28: Process Employee Payslip Discrepancy
-**Description:** Handle employee salary inquiries or discrepancy tickets and process retroactive pay adjustments.
+### UC10: Search Corporate Staff Directory
+**Description:** Search colleague contact details, job roles, office extensions, and work locations.
 
-![UC28: Process Employee Payslip Discrepancy](usecase_images/module_03_payroll_compensation/UC28.png)
+![UC10: Search Corporate Staff Directory](usecase_images/module_01_core_hr/UC10.png)
 
 ---
 
 
-# 🏢 Module: Recruitment & Hiring
+# Module: Workforce Activity & Location Audit
 
-### UC29: Create & Approve Job Requisitions
-**Description:** Create job requisitions for open positions and route them for budget approval from HR and Finance managers.
+### UC11: Initialize Workstation Activity Tracking
+**Description:** Start background workstation timer to measure active working hours and task effort.
 
-![UC29: Create & Approve Job Requisitions](usecase_images/module_04_recruitment_hiring/UC29.png)
-
----
-
-### UC30: Post Jobs to Career Portal
-**Description:** Publish approved job postings to the company career portal with custom job descriptions and deadlines.
-
-![UC30: Post Jobs to Career Portal](usecase_images/module_04_recruitment_hiring/UC30.png)
+![UC11: Initialize Workstation Activity Tracking](usecase_images/module_02_workforce_tracking/UC11.png)
 
 ---
 
-### UC31: Parse & Filter Candidate Applications
-**Description:** Automatically parse candidate CVs (PDF/Docx) and match candidate skill profiles against job requirements.
+### UC12: Audit Staff Productivity Metrics
+**Description:** Analyze team daily productivity scores, active keyboard/mouse ratios, and idle time summaries.
 
-![UC31: Parse & Filter Candidate Applications](usecase_images/module_04_recruitment_hiring/UC31.png)
-
----
-
-### UC32: Track Candidate Pipeline Stages
-**Description:** Manage applicant progress across recruitment pipeline stages using an interactive Kanban board.
-
-![UC32: Track Candidate Pipeline Stages](usecase_images/module_04_recruitment_hiring/UC32.png)
+![UC12: Audit Staff Productivity Metrics](usecase_images/module_02_workforce_tracking/UC12.png)
 
 ---
 
-### UC33: Schedule Interviews & Sync Calendars
-**Description:** Schedule candidate interviews, invite interview panels, and generate calendar sync links (Google Meet/Zoom).
+### UC13: Monitor Software Application & Web Usage
+**Description:** Track software tools, web browser URLs, and active desktop windows used during working hours.
 
-![UC33: Schedule Interviews & Sync Calendars](usecase_images/module_04_recruitment_hiring/UC33.png)
-
----
-
-### UC34: Submit Interview Scorecards & Feedback
-**Description:** Complete post-interview candidate evaluation scorecards and record hiring recommendations.
-
-![UC34: Submit Interview Scorecards & Feedback](usecase_images/module_04_recruitment_hiring/UC34.png)
+![UC13: Monitor Software Application & Web Usage](usecase_images/module_02_workforce_tracking/UC13.png)
 
 ---
 
-### UC35: Generate & Send Job Offer Letters
-**Description:** Generate standardized job offer letters and send them to selected candidates for digital acceptance.
+### UC14: Inspect Workstation Desktop Screenshots
+**Description:** Inspect automated periodic desktop screenshots captured during active working sessions.
 
-![UC35: Generate & Send Job Offer Letters](usecase_images/module_04_recruitment_hiring/UC35.png)
-
----
-
-### UC36: Collect Pre-Hire Information
-**Description:** Collect pre-onboarding personal details, bank account numbers, and ID document scans from accepted candidates.
-
-![UC36: Collect Pre-Hire Information](usecase_images/module_04_recruitment_hiring/UC36.png)
+![UC14: Inspect Workstation Desktop Screenshots](usecase_images/module_02_workforce_tracking/UC14.png)
 
 ---
 
+### UC15: Activate GPS Geofenced Location Tracking
+**Description:** Enable mobile GPS location breadcrumbs during field client visits and travel assignments.
 
-# 🏢 Module: Performance & OKRs
-
-### UC37: Align Strategic Goals & Department OKRs
-**Description:** Define corporate strategic objectives and align them with department and individual OKR trees.
-
-![UC37: Align Strategic Goals & Department OKRs](usecase_images/module_05_performance_okrs/UC37.png)
+![UC15: Activate GPS Geofenced Location Tracking](usecase_images/module_02_workforce_tracking/UC15.png)
 
 ---
 
-### UC38: Update Key Result Progress
-**Description:** Log progress updates on individual key results and track real-time goal completion percentages.
+### UC16: Monitor Field Staff Live Location Map
+**Description:** View live map displaying current GPS positions and travel routes of field personnel.
 
-![UC38: Update Key Result Progress](usecase_images/module_05_performance_okrs/UC38.png)
-
----
-
-### UC39: Initiate 360-Degree Performance Reviews
-**Description:** Launch 360-degree performance evaluation cycles involving self, peer, subordinate, and manager reviews.
-
-![UC39: Initiate 360-Degree Performance Reviews](usecase_images/module_05_performance_okrs/UC39.png)
+![UC16: Monitor Field Staff Live Location Map](usecase_images/module_02_workforce_tracking/UC16.png)
 
 ---
 
-### UC40: Submit Peer & Self Appraisals
-**Description:** Complete self-appraisals and provide constructive peer feedback using competency scoring grids.
+### UC17: Dispatch Field Operations Work Order
+**Description:** Dispatch client visit tasks, service job orders, and schedule assignments to field personnel.
 
-![UC40: Submit Peer & Self Appraisals](usecase_images/module_05_performance_okrs/UC40.png)
-
----
-
-### UC41: Record 1-on-1 Coaching Notes & Actions
-**Description:** Schedule 1-on-1 coaching sessions, document discussion notes, and assign actionable follow-up items.
-
-![UC41: Record 1-on-1 Coaching Notes & Actions](usecase_images/module_05_performance_okrs/UC41.png)
+![UC17: Dispatch Field Operations Work Order](usecase_images/module_02_workforce_tracking/UC17.png)
 
 ---
 
-### UC42: Send Peer Recognition & Kudos
-**Description:** Send public peer appreciation badges (Kudos) and reward points on the company social feed.
+### UC18: Submit Field Completion Report
+**Description:** Submit field service completion report, client e-signatures, and site status photographs.
 
-![UC42: Send Peer Recognition & Kudos](usecase_images/module_05_performance_okrs/UC42.png)
+![UC18: Submit Field Completion Report](usecase_images/module_02_workforce_tracking/UC18.png)
 
 ---
 
 
-# 🏢 Module: Projects & Task Management
+# Module: Recruitment & Talent Acquisition ATS
 
-### UC43: Create Projects & Define Milestones
-**Description:** Create new project workspaces, define financial budgets, and establish key deliverable milestones.
+### UC19: Submit Job Opening Requisition
+**Description:** Draft job requisition requesting open headcount budget approval from department management.
 
-![UC43: Create Projects & Define Milestones](usecase_images/module_06_projects_tasks/UC43.png)
-
----
-
-### UC44: Assign Team Members to Projects
-**Description:** Allocate team members to projects with specific project roles and time allocation percentages.
-
-![UC44: Assign Team Members to Projects](usecase_images/module_06_projects_tasks/UC44.png)
+![UC19: Submit Job Opening Requisition](usecase_images/module_03_recruitment/UC19.png)
 
 ---
 
-### UC45: Assign & Track Project Task Status
-**Description:** Assign task items to team members and monitor real-time task completion on Gantt charts or Kanban boards.
+### UC20: Publish Job Posting to Career Portal
+**Description:** Post approved job vacancy on corporate career site and external employment portals.
 
-![UC45: Assign & Track Project Task Status](usecase_images/module_06_projects_tasks/UC45.png)
-
----
-
-### UC46: Log Billable Hours per Project
-**Description:** Log daily worked hours per project task and differentiate between billable and non-billable time.
-
-![UC46: Log Billable Hours per Project](usecase_images/module_06_projects_tasks/UC46.png)
+![UC20: Publish Job Posting to Career Portal](usecase_images/module_03_recruitment/UC20.png)
 
 ---
 
-### UC47: Manage Project Expenses & Billing
-**Description:** Track non-labor project expenses and generate draft client billing invoices for accounting approval.
+### UC21: Screen & Score Candidate Applications
+**Description:** Parse candidate CV resumes, score qualification criteria, and shortlist top applicants.
 
-![UC47: Manage Project Expenses & Billing](usecase_images/module_06_projects_tasks/UC47.png)
-
----
-
-### UC48: Generate Project Profitability Reports
-**Description:** Compute net profit margins by comparing project client revenues against labor costs and overheads.
-
-![UC48: Generate Project Profitability Reports](usecase_images/module_06_projects_tasks/UC48.png)
+![UC21: Screen & Score Candidate Applications](usecase_images/module_03_recruitment/UC21.png)
 
 ---
 
+### UC22: Generate Candidate Job Offer Letter
+**Description:** Prepare formal job offer agreement including compensation details, starting date, and conditions.
 
-# 🏢 Module: Platform & Security (Web)
-
-### UC49: Authenticate User & Single Sign-On (SSO)
-**Description:** Authenticate users via local credentials or Enterprise SSO (OAuth2/OIDC/SAML2) with JWT sessions.
-
-![UC49: Authenticate User & Single Sign-On (SSO)](usecase_images/module_07_platform_security/UC49.png)
+![UC22: Generate Candidate Job Offer Letter](usecase_images/module_03_recruitment/UC22.png)
 
 ---
 
-### UC50: Manage Roles & Permissions (RBAC)
-**Description:** Define custom user roles, set fine-grained CRUD permissions, and enforce data scope boundaries.
+### UC23: Send Automated Candidate Email
+**Description:** Send interview scheduling invitations, application status updates, or regret letters.
 
-![UC50: Manage Roles & Permissions (RBAC)](usecase_images/module_07_platform_security/UC50.png)
-
----
-
-### UC51: Manage Integration API Keys & Webhooks
-**Description:** Provision API keys, configure IP whitelist rules, rate limits, and HTTPS webhook callback endpoints.
-
-![UC51: Manage Integration API Keys & Webhooks](usecase_images/module_07_platform_security/UC51.png)
+![UC23: Send Automated Candidate Email](usecase_images/module_03_recruitment/UC23.png)
 
 ---
 
-### UC52: Configure Email & SMS Notification Templates
-**Description:** Configure dynamic email and SMS notification templates with template placeholders.
+### UC24: Log Candidate Communication History
+**Description:** Record telephone screening notes, email correspondence, and feedback logs in ATS profile.
 
-![UC52: Configure Email & SMS Notification Templates](usecase_images/module_07_platform_security/UC52.png)
+![UC24: Log Candidate Communication History](usecase_images/module_03_recruitment/UC24.png)
 
 ---
 
-### UC53: Configure Data Masking & Encryption
-**Description:** Configure dynamic UI data masking and AES-256 field-level database encryption for sensitive PII data.
+### UC25: Draft New-Hire Onboarding Roadmap
+**Description:** Prepare orientation task schedule, compliance checklist, and assign buddy mentor for new hire.
 
-![UC53: Configure Data Masking & Encryption](usecase_images/module_07_platform_security/UC53.png)
+![UC25: Draft New-Hire Onboarding Roadmap](usecase_images/module_03_recruitment/UC25.png)
+
+---
+
+### UC26: Complete New-Hire Onboarding Tasks
+**Description:** Complete mandatory orientation modules, nộp pre-hire legal forms, and verify account setup.
+
+![UC26: Complete New-Hire Onboarding Tasks](usecase_images/module_03_recruitment/UC26.png)
 
 ---
 
 
-# 🏢 Module: Analytics & BI Reporting
+# Module: Time, Attendance & Leave Management
 
-### UC54: Build Custom HR Reports
-**Description:** Design custom HR reports using drag-and-drop field selection, filter criteria, and chart visualizations.
+### UC27: Record Daily Attendance Clock-in
+**Description:** Log morning arrival work timestamp via web portal, biometrics, or mobile app.
 
-![UC54: Build Custom HR Reports](usecase_images/module_08_analytics_bi/UC54.png)
-
----
-
-### UC55: Schedule Automated Report Delivery
-**Description:** Set up automated cron schedules to generate and email PDF/Excel HR reports to management.
-
-![UC55: Schedule Automated Report Delivery](usecase_images/module_08_analytics_bi/UC55.png)
+![UC27: Record Daily Attendance Clock-in](usecase_images/module_04_time_attendance/UC27.png)
 
 ---
 
-### UC56: View Headcount & Payroll Cost Dashboard
-**Description:** View executive dashboards displaying real-time headcount trends, total payroll spend, and budget variances.
+### UC28: Record Daily Attendance Clock-out
+**Description:** Log end-of-day departure timestamp and calculate total daily active working duration.
 
-![UC56: View Headcount & Payroll Cost Dashboard](usecase_images/module_08_analytics_bi/UC56.png)
-
----
-
-### UC57: Analyze Turnover & Retention Metrics
-**Description:** Analyze voluntary and involuntary employee turnover rates, exit reason breakdowns, and retention trends.
-
-![UC57: Analyze Turnover & Retention Metrics](usecase_images/module_08_analytics_bi/UC57.png)
+![UC28: Record Daily Attendance Clock-out](usecase_images/module_04_time_attendance/UC28.png)
 
 ---
 
+### UC29: Review Personal Attendance History
+**Description:** Access monthly attendance calendar logs, check lateness flags, and review work hours.
 
-# 🏢 Module: Compliance & Audit
-
-### UC58: Audit Labor Law Compliance
-**Description:** Scan system data for labor law compliance risks, such as overtime hour limits and contract renewals.
-
-![UC58: Audit Labor Law Compliance](usecase_images/module_09_compliance_audit/UC58.png)
+![UC29: Review Personal Attendance History](usecase_images/module_04_time_attendance/UC29.png)
 
 ---
 
-### UC59: Inspect System Audit Logs
-**Description:** Search, filter, and inspect immutable system audit trail logs for security and compliance audits.
+### UC30: Submit Weekly Work Timesheet
+**Description:** Fill out weekly work timesheet allocating project task hours and submit for manager approval.
 
-![UC59: Inspect System Audit Logs](usecase_images/module_09_compliance_audit/UC59.png)
+![UC30: Submit Weekly Work Timesheet](usecase_images/module_04_time_attendance/UC30.png)
 
 ---
 
-### UC60: Report Policy Violations & Grievances
-**Description:** Submit anonymous policy violation reports and encrypted grievance tickets to the Ethics Committee.
+### UC31: Approve Department Weekly Timesheets
+**Description:** Review team members' weekly timesheets, resolve anomalies, and lock data for payroll.
 
-![UC60: Report Policy Violations & Grievances](usecase_images/module_09_compliance_audit/UC60.png)
+![UC31: Approve Department Weekly Timesheets](usecase_images/module_04_time_attendance/UC31.png)
+
+---
+
+### UC32: Configure Department Shift Rosters
+**Description:** Define shift working hours, break schedules, rotational shifts, and overtime thresholds.
+
+![UC32: Configure Department Shift Rosters](usecase_images/module_04_time_attendance/UC32.png)
+
+---
+
+### UC33: Assign Work Shift Schedule
+**Description:** Assign weekly work shifts to staff members and publish team roster schedule.
+
+![UC33: Assign Work Shift Schedule](usecase_images/module_04_time_attendance/UC33.png)
+
+---
+
+### UC34: Submit Paid Leave Application
+**Description:** Apply for annual leave, sick leave, or maternity leave and route for manager review.
+
+![UC34: Submit Paid Leave Application](usecase_images/module_04_time_attendance/UC34.png)
+
+---
+
+### UC35: Approve Employee Leave Application
+**Description:** Review employee leave requests, check department shift coverage, and sign off time-off.
+
+![UC35: Approve Employee Leave Application](usecase_images/module_04_time_attendance/UC35.png)
+
+---
+
+### UC36: Track Leave Quotas & Accruals
+**Description:** View real-time paid leave balance, accrued sick days, and historical time-off usage.
+
+![UC36: Track Leave Quotas & Accruals](usecase_images/module_04_time_attendance/UC36.png)
+
+---
+
+
+# Module: Payroll Processing & Benefits Admin
+
+### UC37: Execute Monthly Payroll Computation
+**Description:** Run automated gross-to-net salary calculations including tax withholding, BHXH insurance, and allowances.
+
+![UC37: Execute Monthly Payroll Computation](usecase_images/module_05_payroll_benefits/UC37.png)
+
+---
+
+### UC38: Approve Monthly Payroll Disbursement
+**Description:** Audit monthly master payroll summary sheet and authorize bank transfer disbursement.
+
+![UC38: Approve Monthly Payroll Disbursement](usecase_images/module_05_payroll_benefits/UC38.png)
+
+---
+
+### UC39: Distribute Digital Confidential Payslips
+**Description:** Generate password-protected encrypted PDF payslips and email them securely to staff.
+
+![UC39: Distribute Digital Confidential Payslips](usecase_images/module_05_payroll_benefits/UC39.png)
+
+---
+
+### UC40: Configure Corporate Benefit Plans
+**Description:** Configure employee healthcare insurance, wellness programs, and flexible benefit rules.
+
+![UC40: Configure Corporate Benefit Plans](usecase_images/module_05_payroll_benefits/UC40.png)
+
+---
+
+### UC41: Enroll in Flexible Benefit Scheme
+**Description:** Enroll in annual corporate health insurance and select flexible benefit options.
+
+![UC41: Enroll in Flexible Benefit Scheme](usecase_images/module_05_payroll_benefits/UC41.png)
+
+---
+
+### UC42: Define Organizational Salary Architecture
+**Description:** Establish base salary grade bands, allowance structures, and overtime pay formulas.
+
+![UC42: Define Organizational Salary Architecture](usecase_images/module_05_payroll_benefits/UC42.png)
+
+---
+
+### UC43: Create Annual Compensation Increase Scheme
+**Description:** Create annual merit salary revision budgets and performance bonus allocation matrices.
+
+![UC43: Create Annual Compensation Increase Scheme](usecase_images/module_05_payroll_benefits/UC43.png)
+
+---
+
+### UC44: Approve Employee Salary Adjustment
+**Description:** Review individual promotion proposals or merit salary adjustments for approval.
+
+![UC44: Approve Employee Salary Adjustment](usecase_images/module_05_payroll_benefits/UC44.png)
+
+---
+
+
+# Module: Performance, OKRs & Talent Growth
+
+### UC45: Initiate 360 Performance Review Cycle
+**Description:** Launch company-wide 360-degree performance evaluation cycles involving self and manager forms.
+
+![UC45: Initiate 360 Performance Review Cycle](usecase_images/module_06_performance/UC45.png)
+
+---
+
+### UC46: Submit Employee Self-Appraisal Form
+**Description:** Complete self-appraisal form rating key competencies, accomplishments, and goals.
+
+![UC46: Submit Employee Self-Appraisal Form](usecase_images/module_06_performance/UC46.png)
+
+---
+
+### UC47: Submit Manager Performance Scorecard
+**Description:** Evaluate subordinate employee performance, score core competencies, and assign final rating.
+
+![UC47: Submit Manager Performance Scorecard](usecase_images/module_06_performance/UC47.png)
+
+---
+
+### UC48: Establish Strategic Goals & OKRs
+**Description:** Set individual SMART goals and key results aligned with department objectives.
+
+![UC48: Establish Strategic Goals & OKRs](usecase_images/module_06_performance/UC48.png)
+
+---
+
+### UC49: Update Key Result Progress Status
+**Description:** Update OKR key result completion percentages and log milestone progress notes.
+
+![UC49: Update Key Result Progress Status](usecase_images/module_06_performance/UC49.png)
+
+---
+
+### UC50: Review & Verify Goal Accomplishments
+**Description:** Audit employee OKR deliverables, verify key result metrics, and sign off goal status.
+
+![UC50: Review & Verify Goal Accomplishments](usecase_images/module_06_performance/UC50.png)
+
+---
+
+### UC51: Schedule 1-on-1 Coaching Session
+**Description:** Schedule regular 1-on-1 performance coaching and career development meetings.
+
+![UC51: Schedule 1-on-1 Coaching Session](usecase_images/module_06_performance/UC51.png)
+
+---
+
+### UC52: Draft Individual Development Plan (IDP)
+**Description:** Formulate personal career growth plan, skill improvement milestones, and training targets.
+
+![UC52: Draft Individual Development Plan (IDP)](usecase_images/module_06_performance/UC52.png)
+
+---
+
+### UC53: Send Peer Recognition Kudos Badge
+**Description:** Send public appreciation badges and kudos points to colleagues on corporate feed.
+
+![UC53: Send Peer Recognition Kudos Badge](usecase_images/module_06_performance/UC53.png)
+
+---
+
+### UC54: Monitor Company Performance Analytics
+**Description:** View company-wide rating distribution curves, bell curve calibration, and talent matrix graphs.
+
+![UC54: Monitor Company Performance Analytics](usecase_images/module_06_performance/UC54.png)
+
+---
+
+
+# Module: Platform Infrastructure & Access Control
+
+### UC55: Authenticate System User Session
+**Description:** Authenticate user credentials via Single Sign-On (SSO) and initialize secure active session.
+
+![UC55: Authenticate System User Session](usecase_images/module_07_platform/UC55.png)
+
+---
+
+### UC56: Configure Role-Based Access Control (RBAC)
+**Description:** Define user roles, module permissions, and fine-grained data visibility boundaries.
+
+![UC56: Configure Role-Based Access Control (RBAC)](usecase_images/module_07_platform/UC56.png)
+
+---
+
+
+# Module: Corporate Governance & Security Audit
+
+### UC57: Establish Regulatory Compliance Policy
+**Description:** Configure labor compliance rules, GDPR data retention limits, and corporate governance policies.
+
+![UC57: Establish Regulatory Compliance Policy](usecase_images/module_08_compliance/UC57.png)
+
+---
+
+### UC58: Audit System Security Logs
+**Description:** Inspect real-time system audit trails, access permission logs, and security anomaly events.
+
+![UC58: Audit System Security Logs](usecase_images/module_08_compliance/UC58.png)
+
+---
+
+
+# Module: HR Analytics & BI Reporting
+
+### UC59: Build & Export Custom HR Reports
+**Description:** Design custom tabular reports, apply data filters, and export to Excel/CSV files.
+
+![UC59: Build & Export Custom HR Reports](usecase_images/module_09_analytics/UC59.png)
+
+---
+
+
+# Module: Project Resource & Cost Control
+
+### UC60: Manage Project Allocations & Cost Tracking
+**Description:** Create project workspace, assign team member capacities, and monitor project labor budget.
+
+![UC60: Manage Project Allocations & Cost Tracking](usecase_images/module_10_projects/UC60.png)
 
 ---

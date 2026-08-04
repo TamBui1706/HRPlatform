@@ -1,0 +1,45 @@
+@startuml
+title Attendance Punching, Timesheet Approval & Leave Request Workflow
+
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam ActivityBorderColor #0f172a
+skinparam ActivityBackgroundColor #f8fafc
+skinparam ActivityFontColor #0f172a
+skinparam ActivityFontSize 12
+skinparam ActivityFontStyle bold
+
+skinparam SwimlaneBorderColor #1d4ed8
+skinparam SwimlaneWidth 220
+skinparam SwimlaneTitleFontColor #1e3a8a
+skinparam SwimlaneTitleFontSize 14
+skinparam SwimlaneTitleFontStyle bold
+
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
+
+|Employee|
+start
+:Perform Daily Web / Biometric Clock-in & Clock-out;
+:Submit Overtime (OT) or Paid Leave Application;
+
+|Department Manager|
+:Review OT / Leave Application;
+if (Leave / OT Approved?) then (Approved)
+  :Sign Off Request Form;
+else (Rejected)
+  :Return Request with Feedback;
+  stop
+endif
+
+|Employee|
+:Review Monthly Working Hours Summary;
+
+|Department Manager|
+:Inspect Team Monthly Timesheet Grid & Anomalies;
+:Approve & Lock Team Monthly Timesheet;
+
+|HR Manager|
+:Deduct Leave Quotas & Sync Data to Payroll Engine;
+stop
+@enduml

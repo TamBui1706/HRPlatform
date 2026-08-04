@@ -1,38 +1,55 @@
 @startuml
-left to right direction
+title 10. Search Corporate Staff Directory\nCore HR / Employee Engagement
+
 skinparam shadowing false
 skinparam packageStyle rectangle
 skinparam actorStyle stickman
 
-skinparam ArrowColor #334155
-skinparam ActorBorderColor #1d4ed8
+hide stereotype
+
+skinparam ActorBorderColor #1e293b
 skinparam ActorBackgroundColor #ffffff
 skinparam ActorFontColor #0f172a
 skinparam ActorFontStyle bold
 
-skinparam UsecaseBorderColor #0f172a
-skinparam UsecaseBackgroundColor #f8fafc
-skinparam UsecaseFontColor #0f172a
-skinparam UsecaseFontStyle bold
-
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #1e293b
+skinparam RectangleFontStyle bold
 
-actor "HR Manager" as HRManager
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
+
+skinparam usecase {
+    BackgroundColor #eff6ff
+    BorderColor #2563eb
+    FontColor #0f172a
+    FontStyle bold
+}
+
+skinparam usecase<<Inc>> {
+    BackgroundColor #ffffff
+    BorderColor #64748b
+    FontColor #0f172a
+    FontStyle normal
+}
+
+skinparam usecase<<Ext>> {
+    BackgroundColor #fffbeb
+    BorderColor #d97706
+    FontColor #0f172a
+    FontStyle normal
+}
+
 actor "Employee" as Employee
-actor "Department Manager" as DepartmentManager
 
-rectangle "Core HR & Employee Management - Talent Engagement" {
-    usecase "UC10: Execute Onboarding Checklist" as UC_Main
-    usecase "Generate Onboarding Tasks" as UC_GenTasks
-    usecase "Assign Tasks to Managers" as UC_AssignDepts
-    usecase "Confirm Asset Handover" as UC_ConfirmAsset
+rectangle "Core HR — Employee Engagement" {
+    usecase "Search Staff Directory" as UC_Main
 
-    HRManager -- UC_Main
-    Employee -- UC_ConfirmAsset
-    DepartmentManager -- UC_AssignDepts
-    UC_Main .> UC_GenTasks : <<include>>
-    UC_Main .> UC_AssignDepts : <<include>>
-    UC_Main .> UC_ConfirmAsset : <<include>>
+
+
+    Employee -- UC_Main
+
+
 }
 @enduml

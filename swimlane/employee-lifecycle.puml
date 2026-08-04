@@ -1,0 +1,52 @@
+@startuml
+title Employee Lifecycle & Profile Management Workflow
+
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam ActivityBorderColor #0f172a
+skinparam ActivityBackgroundColor #f8fafc
+skinparam ActivityFontColor #0f172a
+skinparam ActivityFontSize 12
+skinparam ActivityFontStyle bold
+
+skinparam SwimlaneBorderColor #1d4ed8
+skinparam SwimlaneWidth 220
+skinparam SwimlaneTitleFontColor #1e3a8a
+skinparam SwimlaneTitleFontSize 14
+skinparam SwimlaneTitleFontStyle bold
+
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
+
+|Employee|
+start
+:Submit Profile Personal Data & Contact Info;
+:Upload Identity Verification Scans;
+
+|HR Manager|
+:Inspect Submitted Profile & Verify Document Scans;
+if (Documents Valid?) then (Approved)
+  :Approve Master Profile Record;
+else (Rejected)
+  :Return Request for Document Resubmission;
+  stop
+endif
+
+|System Administrator|
+:Provision Corporate Email & SSO Account;
+:Assign Role-Based Access Control (RBAC) Rights;
+
+|Department Manager|
+:Conduct 60-Day Probationary Evaluation;
+if (Probation Passed?) then (Passed)
+  :Sign Official Employment Contract;
+  :Set Regular Salary Band Grade;
+else (Failed)
+  :Initiate Contract Termination;
+  :Revoke System Access Credentials;
+endif
+
+|HR Manager|
+:Archive Final Profile Record in Document Vault;
+stop
+@enduml

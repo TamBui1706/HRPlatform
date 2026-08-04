@@ -1,0 +1,61 @@
+@startuml
+title 21. Screen & Score Candidate Applications\nRecruitment / Candidate Evaluation
+
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+hide stereotype
+
+skinparam ActorBorderColor #1e293b
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
+skinparam RectangleBorderColor #475569
+skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #1e293b
+skinparam RectangleFontStyle bold
+
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
+
+skinparam usecase {
+    BackgroundColor #eff6ff
+    BorderColor #2563eb
+    FontColor #0f172a
+    FontStyle bold
+}
+
+skinparam usecase<<Inc>> {
+    BackgroundColor #ffffff
+    BorderColor #64748b
+    FontColor #0f172a
+    FontStyle normal
+}
+
+skinparam usecase<<Ext>> {
+    BackgroundColor #fffbeb
+    BorderColor #d97706
+    FontColor #0f172a
+    FontStyle normal
+}
+
+actor "Recruiter" as Recruiter
+actor "Department Manager" as DepartmentManager
+
+rectangle "Recruitment — Candidate Evaluation" {
+    usecase "Screen Applications" as UC_Main
+
+    usecase "Parse Candidate Resume" as UC_Inc1 <<Inc>>
+    usecase "Score Qualification Match" as UC_Inc2 <<Inc>>
+
+
+    Recruiter -- UC_Main
+    DepartmentManager -- UC_Main
+
+    UC_Main .[#2563eb].> UC_Inc1 : <<include>>
+    UC_Main .[#2563eb].> UC_Inc2 : <<include>>
+
+}
+@enduml

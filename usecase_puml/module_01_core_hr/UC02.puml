@@ -1,36 +1,57 @@
 @startuml
-left to right direction
+title 2. Maintain Employee Personal Directory\nCore HR / Employee Records
+
 skinparam shadowing false
 skinparam packageStyle rectangle
 skinparam actorStyle stickman
 
-skinparam ArrowColor #334155
-skinparam ActorBorderColor #1d4ed8
+hide stereotype
+
+skinparam ActorBorderColor #1e293b
 skinparam ActorBackgroundColor #ffffff
 skinparam ActorFontColor #0f172a
 skinparam ActorFontStyle bold
 
-skinparam UsecaseBorderColor #0f172a
-skinparam UsecaseBackgroundColor #f8fafc
-skinparam UsecaseFontColor #0f172a
-skinparam UsecaseFontStyle bold
-
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #1e293b
+skinparam RectangleFontStyle bold
 
-actor "HR Manager" as HRManager
-actor "System Administrator" as SystemAdministrator
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
 
-rectangle "Core HR & Employee Management - Org Architecture" {
-    usecase "UC02: Manage Org Hierarchy" as UC_Main
-    usecase "Create Org Unit" as UC_CreateDept
-    usecase "Set Reporting Hierarchy" as UC_SetLine
-    usecase "Assign Department Head" as UC_AssignHead
+skinparam usecase {
+    BackgroundColor #eff6ff
+    BorderColor #2563eb
+    FontColor #0f172a
+    FontStyle bold
+}
 
-    HRManager -- UC_Main
-    SystemAdministrator -- UC_Main
-    UC_Main .> UC_CreateDept : <<include>>
-    UC_Main .> UC_SetLine : <<include>>
-    UC_Main .> UC_AssignHead : <<include>>
+skinparam usecase<<Inc>> {
+    BackgroundColor #ffffff
+    BorderColor #64748b
+    FontColor #0f172a
+    FontStyle normal
+}
+
+skinparam usecase<<Ext>> {
+    BackgroundColor #fffbeb
+    BorderColor #d97706
+    FontColor #0f172a
+    FontStyle normal
+}
+
+actor "Employee" as Employee
+
+rectangle "Core HR — Employee Records" {
+    usecase "Review Personal Profile" as UC_Main
+
+
+    usecase "Export Profile Summary PDF" as UC_Ext1 <<Ext>>
+
+    Employee -- UC_Main
+
+
+    UC_Ext1 .[#d97706].> UC_Main : <<extend>>
 }
 @enduml

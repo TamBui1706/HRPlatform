@@ -1,38 +1,59 @@
 @startuml
-left to right direction
+title 1. Register New Employee Profile\nCore HR / Employee Records
+
 skinparam shadowing false
 skinparam packageStyle rectangle
 skinparam actorStyle stickman
 
-skinparam ArrowColor #334155
-skinparam ActorBorderColor #1d4ed8
+hide stereotype
+
+skinparam ActorBorderColor #1e293b
 skinparam ActorBackgroundColor #ffffff
 skinparam ActorFontColor #0f172a
 skinparam ActorFontStyle bold
 
-skinparam UsecaseBorderColor #0f172a
-skinparam UsecaseBackgroundColor #f8fafc
-skinparam UsecaseFontColor #0f172a
-skinparam UsecaseFontStyle bold
-
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #1e293b
+skinparam RectangleFontStyle bold
+
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
+
+skinparam usecase {
+    BackgroundColor #eff6ff
+    BorderColor #2563eb
+    FontColor #0f172a
+    FontStyle bold
+}
+
+skinparam usecase<<Inc>> {
+    BackgroundColor #ffffff
+    BorderColor #64748b
+    FontColor #0f172a
+    FontStyle normal
+}
+
+skinparam usecase<<Ext>> {
+    BackgroundColor #fffbeb
+    BorderColor #d97706
+    FontColor #0f172a
+    FontStyle normal
+}
 
 actor "HR Manager" as HRManager
-actor "Employee" as Employee
-actor "Department Manager" as DepartmentManager
 
-rectangle "Core HR & Employee Management - Employee Directory" {
-    usecase "UC01: Manage Employee Profiles" as UC_Main
-    usecase "Input Personal Particulars" as UC_Input
-    usecase "Upload ID Scans & Photo" as UC_UploadDoc
-    usecase "Approve Profile Update" as UC_ApproveProfile
+rectangle "Core HR — Employee Records" {
+    usecase "Register Employee Profile" as UC_Main
+
+    usecase "Validate Personal Information" as UC_Inc1 <<Inc>>
+
+    usecase "Attach ID Scans" as UC_Ext1 <<Ext>>
 
     HRManager -- UC_Main
-    Employee -- UC_Input
-    DepartmentManager -- UC_ApproveProfile
-    UC_Main .> UC_Input : <<include>>
-    UC_Main .> UC_UploadDoc : <<include>>
-    UC_Main .> UC_ApproveProfile : <<include>>
+
+    UC_Main .[#2563eb].> UC_Inc1 : <<include>>
+
+    UC_Ext1 .[#d97706].> UC_Main : <<extend>>
 }
 @enduml

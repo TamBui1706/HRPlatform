@@ -1,38 +1,65 @@
 @startuml
-left to right direction
+title 9. Publish Internal Communication Announcement\nCore HR / Employee Engagement
+
 skinparam shadowing false
 skinparam packageStyle rectangle
 skinparam actorStyle stickman
 
-skinparam ArrowColor #334155
-skinparam ActorBorderColor #1d4ed8
+hide stereotype
+
+skinparam ActorBorderColor #1e293b
 skinparam ActorBackgroundColor #ffffff
 skinparam ActorFontColor #0f172a
 skinparam ActorFontStyle bold
 
-skinparam UsecaseBorderColor #0f172a
-skinparam UsecaseBackgroundColor #f8fafc
-skinparam UsecaseFontColor #0f172a
-skinparam UsecaseFontStyle bold
-
 skinparam RectangleBorderColor #475569
 skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #1e293b
+skinparam RectangleFontStyle bold
 
-actor "Employee" as Employee
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
+
+skinparam usecase {
+    BackgroundColor #eff6ff
+    BorderColor #2563eb
+    FontColor #0f172a
+    FontStyle bold
+}
+
+skinparam usecase<<Inc>> {
+    BackgroundColor #ffffff
+    BorderColor #64748b
+    FontColor #0f172a
+    FontStyle normal
+}
+
+skinparam usecase<<Ext>> {
+    BackgroundColor #fffbeb
+    BorderColor #d97706
+    FontColor #0f172a
+    FontStyle normal
+}
+
 actor "HR Manager" as HRManager
-actor "Payroll Administrator" as PayrollAdministrator
+actor "Department Manager" as DepartmentManager
+actor "Employee" as Employee
 
-rectangle "Core HR & Employee Management - Employee Directory" {
-    usecase "UC09: Register Tax Dependents" as UC_Main
-    usecase "Fill Dependent Registration Form" as UC_FillForm
-    usecase "Attach Birth Certificate/Proof" as UC_AttachProof
-    usecase "Approve Tax Reduction Status" as UC_ApproveTax
+rectangle "Core HR — Employee Engagement" {
+    usecase "Publish Announcement" as UC_Main
 
+    usecase "Select Audience Group" as UC_Inc1 <<Inc>>
+    usecase "Dispatch Announcement" as UC_Inc2 <<Inc>>
+
+    usecase "Schedule Publication Time" as UC_Ext1 <<Ext>>
+
+    HRManager -- UC_Main
+    DepartmentManager -- UC_Main
     Employee -- UC_Main
-    HRManager -- UC_ApproveTax
-    PayrollAdministrator -- UC_ApproveTax
-    UC_Main .> UC_FillForm : <<include>>
-    UC_Main .> UC_AttachProof : <<include>>
-    UC_Main .> UC_ApproveTax : <<include>>
+
+    UC_Main .[#2563eb].> UC_Inc1 : <<include>>
+    UC_Main .[#2563eb].> UC_Inc2 : <<include>>
+
+    UC_Ext1 .[#d97706].> UC_Main : <<extend>>
 }
 @enduml

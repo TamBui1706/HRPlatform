@@ -1,0 +1,60 @@
+@startuml
+title Recruitment Requisition, CV Screening & Hiring Workflow
+
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam ActivityBorderColor #0f172a
+skinparam ActivityBackgroundColor #f8fafc
+skinparam ActivityFontColor #0f172a
+skinparam ActivityFontSize 12
+skinparam ActivityFontStyle bold
+
+skinparam SwimlaneBorderColor #1d4ed8
+skinparam SwimlaneWidth 220
+skinparam SwimlaneTitleFontColor #1e3a8a
+skinparam SwimlaneTitleFontSize 14
+skinparam SwimlaneTitleFontStyle bold
+
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
+
+|Department Manager|
+start
+:Draft Job Requisition & Define Headcount Budget;
+
+|HR Manager|
+:Review Job Budget & Approve Open Position;
+
+|Recruiter|
+:Publish Vacancy to Corporate Portal & Job Boards;
+
+|Candidate|
+:Submit Online Application & Upload Resume CV;
+
+|Recruiter|
+:Run Automatic CV Parser & Score Qualification Match;
+if (Meets Job Criteria?) then (Shortlisted)
+  :Schedule Technical Candidate Interview;
+else (Disqualified)
+  :Send Automated Regret Email;
+  stop
+endif
+
+|Department Manager|
+:Conduct Candidate Interview & Submit Scorecard;
+
+|Recruiter|
+:Prepare Digital Job Offer Letter;
+
+|Candidate|
+if (Offer Accepted?) then (Accepted)
+  :Sign Offer Letter & Submit Pre-hire Forms;
+else (Declined)
+  :Decline Offer & Log Reason;
+  stop
+endif
+
+|HR Manager|
+:Trigger New-Hire Onboarding Roadmap;
+stop
+@enduml
