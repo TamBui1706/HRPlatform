@@ -1,0 +1,60 @@
+@startuml
+title Time & Attendance Use Case Diagram
+
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ActorBorderColor #0f172a
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
+skinparam RectangleBorderColor #0f172a
+skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #0f172a
+skinparam RectangleFontStyle bold
+
+skinparam ArrowColor #0f172a
+skinparam ArrowThickness 1.2
+
+skinparam usecase {
+    BackgroundColor #f1f5f9
+    BorderColor #0f172a
+    FontColor #0f172a
+    FontStyle normal
+}
+
+
+actor "Employee" as Emp
+
+rectangle "Time & Attendance" {
+    usecase "Manage Attendance Record" as UC_Att
+    usecase "Manage Daily Punch Clock" as UC_Punch
+    usecase "Manage Timesheet Hub" as UC_TS
+    usecase "Manage Shift Rostering" as UC_Shift
+    usecase "Manage Absence & Leave" as UC_Leave
+    usecase "Manage Overtime Requests" as UC_OT
+}
+
+actor "Department Manager" as DM
+actor "HR Manager" as HR
+
+UC_Att ..> UC_Punch : <<include>>
+UC_TS ..> UC_Att : <<include>>
+UC_OT ..> UC_Att : <<extend>>
+
+Emp -- UC_Punch
+Emp -- UC_TS
+Emp -- UC_Leave
+Emp -- UC_OT
+
+UC_TS -- DM
+UC_Shift -- DM
+UC_Leave -- DM
+UC_OT -- DM
+
+UC_Att -- HR
+UC_Leave -- HR
+@enduml

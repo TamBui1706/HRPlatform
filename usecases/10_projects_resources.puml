@@ -1,0 +1,59 @@
+@startuml
+title Projects & Resources Use Case Diagram
+
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ActorBorderColor #0f172a
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
+skinparam RectangleBorderColor #0f172a
+skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #0f172a
+skinparam RectangleFontStyle bold
+
+skinparam ArrowColor #0f172a
+skinparam ArrowThickness 1.2
+
+skinparam usecase {
+    BackgroundColor #f1f5f9
+    BorderColor #0f172a
+    FontColor #0f172a
+    FontStyle normal
+}
+
+
+actor "Project Manager" as PM
+
+rectangle "Projects & Resources" {
+    usecase "Manage Project Lifecycle" as UC_Proj
+    usecase "Manage Project Creation" as UC_Create
+    usecase "Manage Resource Capacity" as UC_Res
+    usecase "Manage Team Allocations" as UC_Alloc
+    usecase "Manage Financial Cost Control" as UC_Cost
+    usecase "Manage Project Billing Invoices" as UC_Inv
+}
+
+actor "Department Manager" as DM
+actor "Employee" as Emp
+
+UC_Proj ..> UC_Create : <<include>>
+UC_Res ..> UC_Alloc : <<include>>
+UC_Inv ..> UC_Cost : <<extend>>
+
+PM -- UC_Proj
+PM -- UC_Create
+PM -- UC_Res
+PM -- UC_Alloc
+PM -- UC_Cost
+
+UC_Res -- DM
+UC_Cost -- DM
+
+UC_Proj -- Emp
+UC_Alloc -- Emp
+@enduml

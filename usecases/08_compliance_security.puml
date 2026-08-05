@@ -1,0 +1,58 @@
+@startuml
+title Compliance & Security Use Case Diagram
+
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ActorBorderColor #0f172a
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
+skinparam RectangleBorderColor #0f172a
+skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #0f172a
+skinparam RectangleFontStyle bold
+
+skinparam ArrowColor #0f172a
+skinparam ArrowThickness 1.2
+
+skinparam usecase {
+    BackgroundColor #f1f5f9
+    BorderColor #0f172a
+    FontColor #0f172a
+    FontStyle normal
+}
+
+
+actor "HR Manager" as HR
+
+rectangle "Compliance & Security" {
+    usecase "Manage Regulatory Compliance" as UC_Comp
+    usecase "Manage Policy Acknowledgment" as UC_Pol
+    usecase "Manage Corporate Governance" as UC_Gov
+    usecase "Manage Data Privacy & Security" as UC_Sec
+    usecase "Manage UI Data Masking" as UC_Mask
+    usecase "Manage Security Audit Trail" as UC_Audit
+}
+
+actor "System Administrator" as SysAdmin
+actor "Employee" as Emp
+
+UC_Comp ..> UC_Pol : <<include>>
+UC_Sec ..> UC_Mask : <<include>>
+UC_Audit ..> UC_Sec : <<extend>>
+
+HR -- UC_Comp
+HR -- UC_Pol
+HR -- UC_Gov
+
+UC_Gov -- SysAdmin
+UC_Sec -- SysAdmin
+UC_Mask -- SysAdmin
+UC_Audit -- SysAdmin
+
+UC_Pol -- Emp
+@enduml

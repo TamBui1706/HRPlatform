@@ -1,0 +1,60 @@
+@startuml
+title Performance & Growth Use Case Diagram
+
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ActorBorderColor #0f172a
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
+skinparam RectangleBorderColor #0f172a
+skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #0f172a
+skinparam RectangleFontStyle bold
+
+skinparam ArrowColor #0f172a
+skinparam ArrowThickness 1.2
+
+skinparam usecase {
+    BackgroundColor #f1f5f9
+    BorderColor #0f172a
+    FontColor #0f172a
+    FontStyle normal
+}
+
+
+actor "Employee" as Emp
+
+rectangle "Performance & Growth" {
+    usecase "Manage 360 Reviews" as UC_360
+    usecase "Manage Self Appraisal" as UC_Self
+    usecase "Manage Goals & OKRs" as UC_Goal
+    usecase "Manage 1-on-1 Coaching" as UC_Coach
+    usecase "Manage Rewards & Kudos" as UC_Kudo
+    usecase "Manage Talent Analytics" as UC_Ana
+}
+
+actor "Department Manager" as DM
+actor "HR Manager" as HR
+
+UC_360 ..> UC_Self : <<include>>
+UC_Coach ..> UC_Goal : <<include>>
+UC_Kudo ..> UC_360 : <<extend>>
+
+Emp -- UC_Self
+Emp -- UC_Goal
+Emp -- UC_Coach
+Emp -- UC_Kudo
+
+UC_360 -- DM
+UC_Goal -- DM
+UC_Coach -- DM
+
+UC_360 -- HR
+UC_Kudo -- HR
+UC_Ana -- HR
+@enduml

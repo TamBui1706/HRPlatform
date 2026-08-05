@@ -1,0 +1,61 @@
+@startuml
+title Core HR Use Case Diagram
+
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ActorBorderColor #0f172a
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
+skinparam RectangleBorderColor #0f172a
+skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #0f172a
+skinparam RectangleFontStyle bold
+
+skinparam ArrowColor #0f172a
+skinparam ArrowThickness 1.2
+
+skinparam usecase {
+    BackgroundColor #f1f5f9
+    BorderColor #0f172a
+    FontColor #0f172a
+    FontStyle normal
+}
+
+
+actor "HR Manager" as HR
+
+rectangle "Core HR" {
+    usecase "Manage Employment Information" as UC_Info
+    usecase "Manage Employee Records" as UC_Rec
+    usecase "Manage Employee Documents" as UC_Doc
+    usecase "Manage Organization Structure" as UC_Org
+    usecase "Manage Employee Profile" as UC_Prof
+    usecase "Manage Employee Experience" as UC_Exp
+}
+
+actor "Employee" as Emp
+actor "Department Manager" as DM
+actor "System Administrator" as SysAdmin
+
+UC_Rec ..> UC_Info : <<include>>
+UC_Prof ..> UC_Exp : <<include>>
+UC_Doc ..> UC_Prof : <<extend>>
+
+HR -- UC_Info
+HR -- UC_Rec
+HR -- UC_Doc
+HR -- UC_Org
+
+UC_Exp -- Emp
+UC_Prof -- Emp
+
+UC_Prof -- DM
+UC_Org -- DM
+
+UC_Org -- SysAdmin
+@enduml

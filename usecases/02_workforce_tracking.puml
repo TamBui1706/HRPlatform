@@ -1,0 +1,60 @@
+@startuml
+title Workforce Tracking Use Case Diagram
+
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ActorBorderColor #0f172a
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
+skinparam RectangleBorderColor #0f172a
+skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #0f172a
+skinparam RectangleFontStyle bold
+
+skinparam ArrowColor #0f172a
+skinparam ArrowThickness 1.2
+
+skinparam usecase {
+    BackgroundColor #f1f5f9
+    BorderColor #0f172a
+    FontColor #0f172a
+    FontStyle normal
+}
+
+
+actor "Employee" as Emp
+
+rectangle "Workforce Tracking" {
+    usecase "Manage Activity Telemetry" as UC_Act
+    usecase "Manage Computer Monitoring" as UC_Comp
+    usecase "Manage Desktop Screenshot Audit" as UC_Shot
+    usecase "Manage Location Tracking" as UC_Loc
+    usecase "Manage Field Operations" as UC_Field
+    usecase "Manage Field Service Reports" as UC_Rep
+}
+
+actor "Department Manager" as DM
+actor "HR Manager" as HR
+
+UC_Act ..> UC_Comp : <<include>>
+UC_Shot ..> UC_Comp : <<extend>>
+UC_Field ..> UC_Rep : <<include>>
+
+Emp -- UC_Act
+Emp -- UC_Loc
+Emp -- UC_Field
+Emp -- UC_Rep
+
+UC_Act -- DM
+UC_Comp -- DM
+UC_Loc -- DM
+UC_Field -- DM
+
+UC_Comp -- HR
+UC_Shot -- HR
+@enduml

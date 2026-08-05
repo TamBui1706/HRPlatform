@@ -1,0 +1,58 @@
+@startuml
+title Payroll & Benefits Use Case Diagram
+
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ActorBorderColor #0f172a
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
+skinparam RectangleBorderColor #0f172a
+skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #0f172a
+skinparam RectangleFontStyle bold
+
+skinparam ArrowColor #0f172a
+skinparam ArrowThickness 1.2
+
+skinparam usecase {
+    BackgroundColor #f1f5f9
+    BorderColor #0f172a
+    FontColor #0f172a
+    FontStyle normal
+}
+
+
+actor "Payroll Administrator" as PayAdmin
+
+rectangle "Payroll & Benefits" {
+    usecase "Manage Payroll Calculation" as UC_Pay
+    usecase "Manage Bank Batch Disbursement" as UC_Bank
+    usecase "Manage Digital Payslips" as UC_Slip
+    usecase "Manage Benefits Admin" as UC_Ben
+    usecase "Manage Flex Benefits Claim" as UC_Claim
+    usecase "Manage Compensation Structure" as UC_Comp
+}
+
+actor "HR Manager" as HR
+actor "Employee" as Emp
+
+UC_Pay ..> UC_Bank : <<include>>
+UC_Pay ..> UC_Slip : <<include>>
+UC_Claim ..> UC_Ben : <<extend>>
+
+PayAdmin -- UC_Pay
+PayAdmin -- UC_Bank
+PayAdmin -- UC_Slip
+PayAdmin -- UC_Ben
+
+UC_Pay -- HR
+UC_Comp -- HR
+
+UC_Slip -- Emp
+UC_Claim -- Emp
+@enduml

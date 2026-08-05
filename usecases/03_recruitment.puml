@@ -1,0 +1,63 @@
+@startuml
+title Recruitment Use Case Diagram
+
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ActorBorderColor #0f172a
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
+skinparam RectangleBorderColor #0f172a
+skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #0f172a
+skinparam RectangleFontStyle bold
+
+skinparam ArrowColor #0f172a
+skinparam ArrowThickness 1.2
+
+skinparam usecase {
+    BackgroundColor #f1f5f9
+    BorderColor #0f172a
+    FontColor #0f172a
+    FontStyle normal
+}
+
+
+actor "Recruiter" as Rec
+
+rectangle "Recruitment" {
+    usecase "Manage Job Requisition" as UC_Req
+    usecase "Manage Recruitment Pipeline" as UC_Pipe
+    usecase "Manage Job Openings" as UC_Job
+    usecase "Manage Candidate Communication" as UC_Comm
+    usecase "Manage Candidate Screening" as UC_Scr
+    usecase "Manage Onboarding Hub" as UC_Onb
+}
+
+actor "Candidate" as Cand
+actor "Department Manager" as DM
+actor "HR Manager" as HR
+
+UC_Pipe ..> UC_Job : <<include>>
+UC_Scr ..> UC_Comm : <<include>>
+UC_Onb ..> UC_Scr : <<extend>>
+
+Rec -- UC_Req
+Rec -- UC_Pipe
+Rec -- UC_Job
+Rec -- UC_Comm
+Rec -- UC_Scr
+
+UC_Job -- Cand
+UC_Comm -- Cand
+
+UC_Req -- DM
+UC_Scr -- DM
+
+UC_Req -- HR
+UC_Onb -- HR
+@enduml

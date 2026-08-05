@@ -1,0 +1,57 @@
+@startuml
+title Analytics & BI Use Case Diagram
+
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle stickman
+
+skinparam ActorBorderColor #0f172a
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorFontColor #0f172a
+skinparam ActorFontStyle bold
+
+skinparam RectangleBorderColor #0f172a
+skinparam RectangleBackgroundColor #ffffff
+skinparam RectangleFontColor #0f172a
+skinparam RectangleFontStyle bold
+
+skinparam ArrowColor #0f172a
+skinparam ArrowThickness 1.2
+
+skinparam usecase {
+    BackgroundColor #f1f5f9
+    BorderColor #0f172a
+    FontColor #0f172a
+    FontStyle normal
+}
+
+
+actor "HR Manager" as HR
+
+rectangle "Analytics & BI" {
+    usecase "Manage BI Reporting" as UC_Rep
+    usecase "Manage Custom Reports" as UC_Cust
+    usecase "Manage Executive Dashboards" as UC_Dash
+    usecase "Manage Headcount Dashboards" as UC_Head
+    usecase "Manage Predictive Analytics" as UC_Pred
+    usecase "Manage Turnover Analytics" as UC_Turn
+}
+
+actor "Department Manager" as DM
+actor "Payroll Administrator" as PayAdmin
+
+UC_Rep ..> UC_Cust : <<include>>
+UC_Dash ..> UC_Head : <<include>>
+UC_Pred ..> UC_Turn : <<extend>>
+
+HR -- UC_Rep
+HR -- UC_Cust
+HR -- UC_Dash
+HR -- UC_Pred
+
+UC_Dash -- DM
+UC_Turn -- DM
+
+UC_Cust -- PayAdmin
+@enduml
