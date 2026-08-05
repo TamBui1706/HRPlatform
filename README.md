@@ -216,3 +216,76 @@ flowchart LR
 ![10. Project Resource & Cost Control](use/10.png)
 
 ---
+
+## Swimlane Diagrams
+
+### 1. Core HR & Employee Management Workflow
+**Description:** End-to-end employee lifecycle swimlane process covering Profile Registration, Document Verification, IT Account Provisioning, Probationary Assessment, and Offboarding.
+
+![1. Core HR & Employee Management Workflow](swimlane/1.png)
+
+---
+
+### 2. Workforce Tracking & Activity Audit Workflow
+**Description:** Workforce telemetry swimlane process covering Workstation Agent Logging, Idle Time Detection, GPS Geofenced Clock-in, Field Service Dispatch, and E-Sign Audit.
+
+![2. Workforce Tracking & Activity Audit Workflow](swimlane/2.png)
+
+---
+
+### 3. Recruitment & Talent Acquisition Workflow
+**Description:** Talent acquisition swimlane process covering Job Requisition Approval, Automated CV Parsing, Technical Interview Scorecards, Digital Offer Letters, and Pre-Hire Setup.
+
+![3. Recruitment & Talent Acquisition Workflow](swimlane/3.png)
+
+---
+
+### 4. Time, Attendance & Leave Management Workflow
+**Description:** Time management swimlane process covering Daily Clock-in/out, Overtime & Leave Requests, Manager Approvals, and Monthly Timesheet Verification.
+
+![4. Time, Attendance & Leave Management Workflow](swimlane/4.png)
+
+---
+
+### 5. Payroll Processing & Benefits Admin Workflow
+**Description:** Payroll administration swimlane process covering Timesheet Import, Gross-to-Net Computation, Tax/BHXH Deductions, HR Audit, and Direct Bank Deposit Batch File Generation.
+
+![5. Payroll Processing & Benefits Admin Workflow](swimlane/5.png)
+
+---
+
+### 6. Performance, OKRs & Talent Growth Workflow
+**Description:** Strategic talent appraisal swimlane process covering Corporate OKR Cascade, 360-Degree Feedback & Self-Appraisal, Manager 1-on-1 Coaching, Executive Calibration, and Bonus Distribution.
+
+![6. Performance, OKRs & Talent Growth Workflow](swimlane/6.png)
+
+---
+
+### 7. Platform Infrastructure & Access Control Workflow
+**Description:** Platform security swimlane process covering User Login Request, SSO Identity Verification, Multi-Factor Authentication (MFA), and Fine-Grained Role Permission Enforcement.
+
+![7. Platform Infrastructure & Access Control Workflow](swimlane/7.png)
+
+---
+
+### 8. Corporate Governance & Security Audit Workflow
+**Description:** Compliance management swimlane process covering Policy Definition, Mandatory Staff Sign-off, PII Data Masking, Real-time Security Event Detection, and Audit Trail Reporting.
+
+![8. Corporate Governance & Security Audit Workflow](swimlane/8.png)
+
+---
+
+### 9. HR Analytics & BI Reporting Workflow
+**Description:** Analytics swimlane process covering Drag-and-Drop Filter Selection, Database Aggregation, Dynamic Chart Rendering, Executive Metric Auditing, and Automated PDF/Excel Delivery.
+
+![9. HR Analytics & BI Reporting Workflow](swimlane/9.png)
+
+---
+
+### 10. Project Resource & Cost Control Workflow
+**Description:** Project management swimlane process covering Project Creation, Member Capacity Allocation, Billable Timesheet Logging, Labor Cost Analysis, and Client Invoicing.
+
+![10. Project Resource & Cost Control Workflow](swimlane/10.png)
+
+---
+

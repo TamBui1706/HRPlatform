@@ -1,0 +1,46 @@
+@startuml
+title Single Sign-On (SSO) & Role-Based Access Control (RBAC) Workflow
+
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam ActivityBorderColor #0f172a
+skinparam ActivityBackgroundColor #f8fafc
+skinparam ActivityFontColor #0f172a
+skinparam ActivityFontSize 12
+skinparam ActivityFontStyle bold
+
+skinparam SwimlaneBorderColor #1d4ed8
+skinparam SwimlaneWidth 220
+skinparam SwimlaneTitleFontColor #1e3a8a
+skinparam SwimlaneTitleFontSize 14
+skinparam SwimlaneTitleFontStyle bold
+
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
+
+|Employee|
+start
+:Submit SSO Credentials on Portal;
+
+|System Administrator|
+:Verify Identity Token against Directory;
+if (Credentials Valid?) then (Valid)
+  :Request Multi-Factor Authentication (MFA);
+else (Invalid)
+  :Block Session & Log Failed Access Event;
+  stop
+endif
+
+|Employee|
+:Enter 6-Digit MFA Verification Code;
+
+|System Administrator|
+:Validate MFA Code & Check Role Permissions (RBAC);
+
+|HR Manager|
+:Audit Active User Session & Module Access;
+
+|System Administrator|
+:Grant Access & Issue Encrypted Session Token;
+stop
+@enduml

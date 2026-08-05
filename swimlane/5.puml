@@ -1,0 +1,45 @@
+@startuml
+title Monthly Payroll Computation & Direct Deposit Disbursement Workflow
+
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam ActivityBorderColor #0f172a
+skinparam ActivityBackgroundColor #f8fafc
+skinparam ActivityFontColor #0f172a
+skinparam ActivityFontSize 12
+skinparam ActivityFontStyle bold
+
+skinparam SwimlaneBorderColor #1d4ed8
+skinparam SwimlaneWidth 220
+skinparam SwimlaneTitleFontColor #1e3a8a
+skinparam SwimlaneTitleFontSize 14
+skinparam SwimlaneTitleFontStyle bold
+
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
+
+|Payroll Administrator|
+start
+:Import Locked Timesheets, OT & Commission Data;
+:Execute Automated Gross-to-Net Salary Computation;
+:Calculate Tax Withholding & BHXH Insurance Deductions;
+:Generate Draft Master Payroll Summary Sheet;
+
+|HR Manager|
+:Audit Payroll Master Sheet & Total Cost Variance;
+if (Payroll Approved?) then (Approved)
+  :Sign Off Monthly Salary Disbursement;
+else (Discrepancy)
+  :Request Payroll Recalculation Audit;
+  stop
+endif
+
+|Payroll Administrator|
+:Export Bank Direct Deposit Transfer Batch File;
+:Transmit File to Direct Deposit Bank;
+:Issue Password-Protected Encrypted Digital Payslips;
+
+|Employee|
+:Receive Payslip Notification & Bank Net Pay Deposit;
+stop
+@enduml

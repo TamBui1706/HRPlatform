@@ -1,0 +1,43 @@
+@startuml
+title Project Resource Allocation & Labor Cost Tracking Workflow
+
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam ActivityBorderColor #0f172a
+skinparam ActivityBackgroundColor #f8fafc
+skinparam ActivityFontColor #0f172a
+skinparam ActivityFontSize 12
+skinparam ActivityFontStyle bold
+
+skinparam SwimlaneBorderColor #1d4ed8
+skinparam SwimlaneWidth 220
+skinparam SwimlaneTitleFontColor #1e3a8a
+skinparam SwimlaneTitleFontSize 14
+skinparam SwimlaneTitleFontStyle bold
+
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.5
+
+|Project Manager|
+start
+:Create Project Workspace & Set Financial Budget;
+
+|Department Manager|
+:Allocate Team Member Capacities & Hourly Rates;
+
+|Employee|
+:Log Daily Worked Hours per Project Task;
+
+|Project Manager|
+:Review & Approve Billable Timesheet Hours;
+:Compute Labor Cost vs Client Revenue;
+if (Budget Overrun Warning?) then (Exceeded)
+  :Adjust Team Member Capacity Allocation;
+else (Normal)
+  :Generate Draft Client Billing Invoice;
+endif
+
+|Department Manager|
+:Sign Off Invoice & Transmit to Client Accounting;
+stop
+@enduml
