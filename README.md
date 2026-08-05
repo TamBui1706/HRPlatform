@@ -145,13 +145,7 @@ flowchart LR
 
 ---
 
-## Actor Relationships Diagram
-
-![Actor Relationships Diagram](ActRelation.png)
-
----
-
-## 10 Core Layer 1 Use Case Diagrams
+## Use Case Diagrams
 
 ### 1. Core HR & Employee Management
 **Description:** Use Case Diagram covering Employment Information, Employee Records, Document Vault, Org Architecture, Employee Profile, and Talent Engagement.
