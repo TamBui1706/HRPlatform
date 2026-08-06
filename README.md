@@ -255,7 +255,7 @@ flowchart LR
 ---
 
 ### 6. Performance, OKRs & Talent Growth Workflow
-**Description:** Strategic talent appraisal swimlane process covering Corporate OKR Cascade, 360-Degree Feedback & Self-Appraisal, Manager 1-on-1 Coaching, Executive Calibration, and Bonus Distribution.
+**Description:** Strategic talent appraisal swimlane process covering Corporate OKR Cascade, 360-Degree Feedback , Manager 1-on-1 Coaching.
 
 ![6. Performance, OKRs & Talent Growth Workflow](swimlane/6.png)
 
