@@ -147,6 +147,7 @@ flowchart LR
 
 ## Information Architecture (IA)
 
+Link to access this IA: https://octopus.do/p62nekzuyam
 ```mermaid
 flowchart LR
 
