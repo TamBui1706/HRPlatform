@@ -1,0 +1,62 @@
+@startuml
+title Employee Management — HR Process
+
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam ActivityBorderColor #b45309
+skinparam ActivityBackgroundColor #fef3c7
+skinparam ActivityFontColor #0f172a
+skinparam ActivityFontSize 12
+skinparam ActivityFontStyle bold
+
+skinparam SwimlaneBorderColor #64748b
+skinparam SwimlaneWidth 220
+skinparam SwimlaneTitleFontColor #0f172a
+skinparam SwimlaneTitleFontSize 14
+skinparam SwimlaneTitleFontStyle bold
+
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.2
+
+skinparam ConditionEndStyle diamond
+
+|HR Staff|
+start
+:Open Employee Management;
+
+|System|
+:Load Employee Directory & Master Profiles;
+:Display Employee Management Dashboard;
+
+|HR Staff|
+:Select Employee Action;
+
+if (Action Type?) then (Update Profile/Docs)
+  :Enter Profile, Contact or Document Updates;
+  |System|
+  :Validate & Save Employee Data;
+else (Contract / Status Change)
+  |HR Staff|
+  :Submit Contract Renewal or Status Change;
+  |HR Manager|
+  :Review Change Request;
+  if (Approved?) then (Yes)
+    |System|
+    :Update Employee Status & Contract Record;
+  else (No)
+    |System|
+    :Record Request Rejection;
+  endif
+endif
+
+|System|
+:Refresh Directory & Update Audit Log;
+:Send Notifications to Employee & Manager;
+
+|External Systems|
+:Synchronize Changes (Payroll, Attendance, Leave, SSO);
+
+|HR Staff|
+:Review Updated Employee Record;
+stop
+@enduml
