@@ -421,6 +421,44 @@
             <h1>Performance, OKRs & Peer Kudos Wall</h1>
             <p>Cây mục tiêu OKRs & bảng vinh danh đồng nghiệp.</p>
           </div>
+          <button class="btn btn-primary" id="btn-send-kudos">🌟 Gửi Kudos Vinh Danh</button>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+          <!-- OKR Card -->
+          <div class="card">
+            <h3>Mục Tiêu Cá Nhân Q3/2026 (OKRs Progress)</h3>
+            <div style="margin-top:16px; display:flex; flex-direction:column; gap:16px;">
+              <div>
+                <div style="display:flex; justify-content:space-between; font-weight:600; margin-bottom:4px;">
+                  <span>KR1: Hoàn thành refactor Design System cho HR Platform</span>
+                  <span id="okr-val-1">85%</span>
+                </div>
+                <input type="range" min="0" max="100" value="85" class="okr-slider" id="okr-slider-1" style="width:100%;">
+              </div>
+              <div>
+                <div style="display:flex; justify-content:space-between; font-weight:600; margin-bottom:4px;">
+                  <span>KR2: Tối ưu hóa tốc độ tải trang dưới 1.2s</span>
+                  <span id="okr-val-2">60%</span>
+                </div>
+                <input type="range" min="0" max="100" value="60" class="okr-slider" id="okr-slider-2" style="width:100%;">
+              </div>
+            </div>
+          </div>
+
+          <!-- Peer Kudos Wall Card -->
+          <div class="card">
+            <h3>Bảng Vinh Danh Đồng Nghiệp (Kudos Feed Wall)</h3>
+            <div style="margin-top:14px; display:flex; flex-direction:column; gap:12px;" id="kudos-feed">
+              <div style="padding:10px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-app);">
+                <div style="display:flex; align-items:center; gap:8px; font-weight:700;">
+                  <span>🌟 Nguyễn Văn Minh</span>
+                  <span class="badge badge-info">Problem Solver</span>
+                </div>
+                <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">"Cảm ơn anh Minh đã hỗ trợ debug hệ thống chấm công GPS rất nhanh gọn!"</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

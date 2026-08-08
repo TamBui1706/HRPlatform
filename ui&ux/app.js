@@ -135,17 +135,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 8. ORG TREE TOGGLE LOGIC ---
-  const toggleOrgTreeBtn = document.getElementById("btn-toggle-org-tree");
-  const orgTreeCard = document.getElementById("org-tree-card");
-  if (toggleOrgTreeBtn && orgTreeCard) {
-    toggleOrgTreeBtn.addEventListener("click", () => {
-      if (orgTreeCard.style.display === "none") {
-        orgTreeCard.style.display = "block";
-        toggleOrgTreeBtn.textContent = "📋 Xem Dạng Bảng (Table View)";
-      } else {
-        orgTreeCard.style.display = "none";
-        toggleOrgTreeBtn.textContent = "🌳 Xem Sơ Đồ Tổ Chức (Org Chart)";
+  // --- 9. OKR SLIDERS & KUDOS WALL LOGIC ---
+  const okr1 = document.getElementById("okr-slider-1");
+  const okrVal1 = document.getElementById("okr-val-1");
+  if (okr1 && okrVal1) {
+    okr1.addEventListener("input", (e) => {
+      okrVal1.textContent = e.target.value + "%";
+    });
+  }
+
+  const okr2 = document.getElementById("okr-slider-2");
+  const okrVal2 = document.getElementById("okr-val-2");
+  if (okr2 && okrVal2) {
+    okr2.addEventListener("input", (e) => {
+      okrVal2.textContent = e.target.value + "%";
+    });
+  }
+
+  const sendKudosBtn = document.getElementById("btn-send-kudos");
+  const kudosFeed = document.getElementById("kudos-feed");
+  if (sendKudosBtn && kudosFeed) {
+    sendKudosBtn.addEventListener("click", () => {
+      const recipient = prompt("Nhập tên đồng nghiệp bạn muốn vinh danh:", "Trần Thanh Tâm");
+      const message = prompt("Nhập lời nhắn vinh danh:", "Xuất sắc hoàn thành dự án!");
+      if (recipient && message) {
+        const newCard = document.createElement("div");
+        newCard.style.padding = "10px";
+        newCard.style.border = "1px solid var(--border-color)";
+        newCard.style.borderRadius = "var(--radius-md)";
+        newCard.style.background = "var(--bg-app)";
+        newCard.innerHTML = `<div style="display:flex; align-items:center; gap:8px; font-weight:700;"><span>🌟 ${recipient}</span><span class="badge badge-active">Team Player</span></div><div style="font-size:12px; color:var(--text-muted); margin-top:4px;">"${message}"</div>`;
+        kudosFeed.prepend(newCard);
+        alert("🌟 Đã gửi Kudos thành công!");
       }
     });
   }
