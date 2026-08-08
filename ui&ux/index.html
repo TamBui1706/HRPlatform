@@ -231,7 +231,7 @@
         </div>
 
         <div class="card" style="margin-bottom:16px;">
-          <div style="display:flex; gap:12px;">
+          <div style="display:flex; gap:12px; align-items:center;">
             <input type="text" id="emp-search-input" placeholder="Tìm kiếm theo tên, mã NV, phòng ban..." style="flex:1; padding:10px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-app); color:var(--text-main);">
             <select style="padding:10px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-app); color:var(--text-main);">
               <option>Tất cả Phòng Ban</option>
@@ -239,6 +239,22 @@
               <option>Tài Chính - Kế Toán</option>
               <option>Nhân Sự</option>
             </select>
+            <button class="btn btn-secondary" id="btn-toggle-org-tree">🌳 Xem Sơ Đồ Tổ Chức (Org Chart)</button>
+          </div>
+        </div>
+
+        <!-- Org Tree Interactive View -->
+        <div class="card" id="org-tree-card" style="display:none; margin-bottom:20px; text-align:center;">
+          <h3>Sơ Đồ Tổ Chức Doanh Nghiệp (Organization Chart)</h3>
+          <div style="display:flex; justify-content:center; gap:20px; margin-top:20px; flex-wrap:wrap;">
+            <div style="border:2px solid var(--primary); padding:12px; border-radius:var(--radius-md); background:var(--primary-light); min-width:180px;">
+              <div style="font-weight:700;">Trần Thanh Tâm</div>
+              <div style="font-size:11px; color:var(--primary);">HR Director</div>
+            </div>
+            <div style="border:2px solid var(--secondary); padding:12px; border-radius:var(--radius-md); background:var(--secondary-light); min-width:180px;">
+              <div style="font-weight:700;">Nguyễn Văn Minh</div>
+              <div style="font-size:11px; color:var(--secondary);">IT Director</div>
+            </div>
           </div>
         </div>
 

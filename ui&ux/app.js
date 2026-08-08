@@ -134,4 +134,19 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("🔍 Global Search Command Palette triggered!\nNhập từ khóa tìm kiếm nhanh nhân sự, phòng ban hoặc báo cáo...");
     });
   }
+
+  // --- 8. ORG TREE TOGGLE LOGIC ---
+  const toggleOrgTreeBtn = document.getElementById("btn-toggle-org-tree");
+  const orgTreeCard = document.getElementById("org-tree-card");
+  if (toggleOrgTreeBtn && orgTreeCard) {
+    toggleOrgTreeBtn.addEventListener("click", () => {
+      if (orgTreeCard.style.display === "none") {
+        orgTreeCard.style.display = "block";
+        toggleOrgTreeBtn.textContent = "📋 Xem Dạng Bảng (Table View)";
+      } else {
+        orgTreeCard.style.display = "none";
+        toggleOrgTreeBtn.textContent = "🌳 Xem Sơ Đồ Tổ Chức (Org Chart)";
+      }
+    });
+  }
 });
