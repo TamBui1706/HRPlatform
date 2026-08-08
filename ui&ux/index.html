@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR Platform — Enterprise Suite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app-container">
+
+  <!-- ==================== SIDEBAR NAVIGATION ==================== -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-box">
+        <div class="logo-icon">HR</div>
+        <span class="logo-text">Enterprise</span>
+      </div>
+      <button class="icon-btn" id="toggle-sidebar-btn" title="Thu gọn / Mở rộng Sidebar">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+
+    <div class="sidebar-menu">
+      <div class="menu-category">PHÂN HỆ CHÍNH</div>
+
+      <div class="nav-item active" data-module="dashboard">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span class="nav-text">1. Executive Dashboard</span>
+      </div>
+
+      <div class="nav-item" data-module="core-hr">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        <span class="nav-text">2. Core HR & Profiles</span>
+      </div>
+
+      <div class="nav-item" data-module="workforce">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <span class="nav-text">3. Workforce Telemetry</span>
+      </div>
+
+      <div class="nav-item" data-module="recruitment">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <span class="nav-text">4. AI Recruitment ATS</span>
+      </div>
+
+      <div class="nav-item" data-module="attendance">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="nav-text">5. Time & Attendance</span>
+      </div>
+
+      <div class="nav-item" data-module="payroll">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        <span class="nav-text">6. Payroll & Payslips</span>
+      </div>
+
+      <div class="nav-item" data-module="performance">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <span class="nav-text">7. Performance & OKRs</span>
+      </div>
+
+      <div class="nav-item" data-module="platform">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <span class="nav-text">8. Platform RBAC</span>
+      </div>
+
+      <div class="nav-item" data-module="governance">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <span class="nav-text">9. Audit & Privacy</span>
+      </div>
+
+      <div class="nav-item" data-module="projects">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        <span class="nav-text">10. Projects & Costs</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== MAIN WORKSPACE AREA ==================== -->
+  <main id="main-wrapper">
+
+    <!-- Top Header -->
+    <header id="top-header">
+      <div class="header-search" id="cmd-palette-btn">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <span>Tìm kiếm nhân sự, tính năng...</span>
+        <kbd>Ctrl K</kbd>
+      </div>
+
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <button class="icon-btn" id="theme-toggle-btn" title="Chuyển chế độ Sáng / Tối">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+
+        <!-- Notification Bell -->
+        <button class="icon-btn" id="notif-btn" title="Thông báo hệ thống">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          <span class="badge-dot"></span>
+        </button>
+
+        <!-- User Profile -->
+        <div class="user-profile" id="user-menu-btn">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Avatar" class="avatar">
+          <div>
+            <div style="font-weight:700; font-size:13px;">Trần Thanh Tâm</div>
+            <div style="font-size:11px; color:var(--text-muted);">HR Director</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Workspace View Container -->
+    <div id="workspace-canvas">
+      
+      <!-- MODULE 1: DASHBOARD VIEW -->
+      <section class="module-view active" id="view-dashboard">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>Executive Dashboard</h1>
+            <p>Trang chủ tổng quan phân tích dữ liệu nhân sự & các yêu cầu cần duyệt gấp.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-clock-in-header">⚡ Chấm công Nhanh</button>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div>
+              <div style="color:var(--text-muted); font-size:12px;">TỔNG NHÂN SỰ</div>
+              <div class="kpi-val">1,248</div>
+              <div class="kpi-trend trend-up">↑ +18 nhân sự mới tháng này</div>
+            </div>
+            <div class="kpi-icon" style="background:var(--primary-light); color:var(--primary);">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div style="color:var(--text-muted); font-size:12px;">TỈ LỆ ĐI LÀM HÔM NAY</div>
+              <div class="kpi-val">96.4%</div>
+              <div class="kpi-trend trend-up">↑ 1,203 / 1,248 có mặt đúng giờ</div>
+            </div>
+            <div class="kpi-icon" style="background:var(--success-light); color:var(--success);">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div style="color:var(--text-muted); font-size:12px;">DỰ KIẾN LƯƠNG THÁNG</div>
+              <div class="kpi-val">$340,000</div>
+              <div class="kpi-trend trend-down">↓ Trong hạn mức ngân sách</div>
+            </div>
+            <div class="kpi-icon" style="background:var(--warning-light); color:var(--warning);">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div style="color:var(--text-muted); font-size:12px;">ỨNG VIÊN ĐANG PHỎNG VẤN</div>
+              <div class="kpi-val">42</div>
+              <div class="kpi-trend trend-up">↑ 12 Offer đã phát hành</div>
+            </div>
+            <div class="kpi-icon" style="background:var(--accent-light); color:var(--accent);">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 2fr 1fr; gap:20px;">
+          <div class="card">
+            <h3>Yêu cầu cần Phê duyệt Gấp</h3>
+            <p style="color:var(--text-muted); font-size:12px; margin-bottom:14px;">Danh sách đơn xin nghỉ phép & hợp đồng chờ ký duyệt</p>
+            <div class="table-container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Họ và Tên</th>
+                    <th>Loại Yêu Cầu</th>
+                    <th>Ngày Gửi</th>
+                    <th>Trạng Thái</th>
+                    <th>Thao Tác</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Nguyễn Văn A</strong></td>
+                    <td>Đơn xin nghỉ phép (3 ngày)</td>
+                    <td>08/08/2026</td>
+                    <td><span class="badge badge-pending">Chờ duyệt</span></td>
+                    <td><button class="btn btn-secondary" onclick="alert('Đã phê duyệt đơn nghỉ phép của Nguyễn Văn A')">Duyệt</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Trần Thị B</strong></td>
+                    <td>Gia hạn hợp đồng 2 năm</td>
+                    <td>07/08/2026</td>
+                    <td><span class="badge badge-pending">Chờ duyệt</span></td>
+                    <td><button class="btn btn-secondary" onclick="alert('Đã phê duyệt gia hạn hợp đồng của Trần Thị B')">Duyệt</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Sinh nhật trong tuần 🎂</h3>
+            <div style="margin-top:14px; display:flex; flex-direction:column; gap:12px;">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" style="width:36px; height:36px; border-radius:50%;">
+                <div>
+                  <div style="font-weight:600;">Lê Minh Cường</div>
+                  <div style="font-size:11px; color:var(--text-muted);">10/08 - Senior Developer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 2: CORE HR VIEW -->
+      <section class="module-view" id="view-core-hr" style="display:none;">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>Core HR & Employee Directory</h1>
+            <p>Quản lý danh sách nhân sự toàn công ty & xem chi tiết hồ sơ 360.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-add-emp">+ Thêm Nhân Viên Mới</button>
+        </div>
+
+        <div class="card" style="margin-bottom:16px;">
+          <div style="display:flex; gap:12px;">
+            <input type="text" id="emp-search-input" placeholder="Tìm kiếm theo tên, mã NV, phòng ban..." style="flex:1; padding:10px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-app); color:var(--text-main);">
+            <select style="padding:10px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-app); color:var(--text-main);">
+              <option>Tất cả Phòng Ban</option>
+              <option>Công Nghệ Thông Tin</option>
+              <option>Tài Chính - Kế Toán</option>
+              <option>Nhân Sự</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Mã NV</th>
+                <th>Họ và Tên</th>
+                <th>Phòng Ban</th>
+                <th>Chức Danh</th>
+                <th>Ngày Vào Làm</th>
+                <th>Trạng Thái</th>
+                <th>Hành Động</th>
+              </tr>
+            </thead>
+            <tbody id="emp-table-body">
+              <tr>
+                <td><strong>NV-001</strong></td>
+                <td><div style="display:flex; align-items:center; gap:8px;"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=60&q=80" style="width:30px; height:30px; border-radius:50%;"><span>Trần Thanh Tâm</span></div></td>
+                <td>Nhân Sự</td>
+                <td>HR Director</td>
+                <td>15/01/2021</td>
+                <td><span class="badge badge-active">Chính thức</span></td>
+                <td><button class="btn btn-secondary btn-open-drawer">Xem Hồ Sơ</button></td>
+              </tr>
+              <tr>
+                <td><strong>NV-002</strong></td>
+                <td><div style="display:flex; align-items:center; gap:8px;"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=60&q=80" style="width:30px; height:30px; border-radius:50%;"><span>Nguyễn Văn Minh</span></div></td>
+                <td>Công Nghệ Thông Tin</td>
+                <td>Lead Software Architect</td>
+                <td>01/03/2022</td>
+                <td><span class="badge badge-active">Chính thức</span></td>
+                <td><button class="btn btn-secondary btn-open-drawer">Xem Hồ Sơ</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- MODULE 3: WORKFORCE VIEW -->
+      <section class="module-view" id="view-workforce" style="display:none;">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>Workforce Telemetry & Activity Audit</h1>
+            <p>Kiểm toán thời gian active/idle máy tính & chụp ảnh màn hình định kỳ.</p>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div>
+              <div style="color:var(--text-muted); font-size:12px;">TỔNG GIỜ ACTIVE HÔM NAY</div>
+              <div class="kpi-val">7.5 Giờ</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div>
+              <div style="color:var(--text-muted); font-size:12px;">MỨC ĐỘ NĂNG SUẤT TẬP TRUNG</div>
+              <div class="kpi-val">92%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Ảnh chụp màn hình định kỳ (Desktop Screenshots)</h3>
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin-top:14px;">
+            <div style="border:1px solid var(--border-color); border-radius:var(--radius-md); padding:8px; background:var(--bg-app);">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=300&q=80" style="width:100%; border-radius:4px;">
+              <div style="font-size:11px; margin-top:6px; font-weight:600;">10:15 AM - VS Code Active</div>
+            </div>
+            <div style="border:1px solid var(--border-color); border-radius:var(--radius-md); padding:8px; background:var(--bg-app);">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=300&q=80" style="width:100%; border-radius:4px;">
+              <div style="font-size:11px; margin-top:6px; font-weight:600;">10:25 AM - Figma Design</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 4: RECRUITMENT ATS VIEW -->
+      <section class="module-view" id="view-recruitment" style="display:none;">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>AI Recruitment Applicant Tracking System (ATS)</h1>
+            <p>Quản lý quy trình ứng viên dạng bảng kéo thả Kanban & lọc CV bằng AI.</p>
+          </div>
+          <button class="btn btn-primary" onclick="alert('Đã kích hoạt AI lọc CV tự động!')">🤖 AI Auto-Filter CV</button>
+        </div>
+
+        <div class="kanban-board">
+          <div class="kanban-col">
+            <div class="col-header">ỨNG TUYỂN MỚI <span class="badge badge-info">3</span></div>
+            <div class="kanban-card">
+              <div style="font-weight:700;">Phạm Hoàng Long</div>
+              <div style="font-size:12px; color:var(--text-muted);">Senior Frontend Engineer</div>
+              <div style="margin-top:8px;"><span class="badge badge-active">Match: 95%</span></div>
+            </div>
+          </div>
+
+          <div class="kanban-col">
+            <div class="col-header">PHỎNG VẤN <span class="badge badge-pending">2</span></div>
+            <div class="kanban-card">
+              <div style="font-weight:700;">Đặng Mỹ Linh</div>
+              <div style="font-size:12px; color:var(--text-muted);">UI/UX Designer</div>
+              <div style="margin-top:8px;"><span class="badge badge-pending">Lịch: 14:00 Hôm nay</span></div>
+            </div>
+          </div>
+
+          <div class="kanban-col">
+            <div class="col-header">GỬI OFFER <span class="badge badge-active">1</span></div>
+            <div class="kanban-card">
+              <div style="font-weight:700;">Vũ Quốc Anh</div>
+              <div style="font-size:12px; color:var(--text-muted);">DevOps Specialist</div>
+              <div style="margin-top:8px;"><span class="badge badge-active">Offer Sent</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 5: ATTENDANCE VIEW -->
+      <section class="module-view" id="view-attendance" style="display:none;">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>Time, Attendance & Leave Management</h1>
+            <p>Chấm công sinh trắc học / geofence GPS & bảng tổng hợp giờ công.</p>
+          </div>
+        </div>
+
+        <div class="card" style="text-align:center; padding:32px; margin-bottom:20px;">
+          <div style="font-size:42px; font-weight:700; font-family:'Outfit';" id="live-clock">00:00:00</div>
+          <div style="color:var(--text-muted); margin-bottom:16px;">Vị trí GPS: Tòa nhà Bitexco, Q.1, TP.HCM (Hợp lệ)</div>
+          <button class="btn btn-primary" id="main-clock-btn" style="padding:14px 32px; font-size:16px;">⚡ CHẤM CÔNG VÀO (CLOCK IN)</button>
+        </div>
+      </section>
+
+      <!-- MODULE 6: PAYROLL VIEW -->
+      <section class="module-view" id="view-payroll" style="display:none;">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>Payroll Processing & Encrypted Payslips</h1>
+            <p>Engine tính lương Gross-to-Net tự động & mở khóa phiếu lương bảo mật.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Phiếu Lương Cá Nhân Bảo Mật Tháng 07/2026 🔒</h3>
+          <p style="color:var(--text-muted); font-size:12px; margin-bottom:14px;">Nhập mã PIN 6 số để giải mã phiếu lương của bạn</p>
+          <div style="display:flex; gap:10px; max-width:300px;">
+            <input type="password" maxlength="6" id="payslip-pin-input" placeholder="Mã PIN (VD: 123456)" style="padding:10px; border:1px solid var(--border-color); border-radius:var(--radius-md); flex:1;">
+            <button class="btn btn-primary" id="btn-unlock-payslip">Giải Mã</button>
+          </div>
+
+          <div id="confidential-payslip-data" style="display:none; margin-top:20px; border-top:1px solid var(--border-color); padding-top:16px;">
+            <div style="font-weight:700; font-size:16px; color:var(--success);">LƯƠNG THỰC NHẬN (NET): 45,500,000 VND</div>
+            <div style="font-size:12px; color:var(--text-muted);">Lương cơ bản: 50,000,000 VND | Khấu trừ BHXH: 4,500,000 VND</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 7: PERFORMANCE VIEW -->
+      <section class="module-view" id="view-performance" style="display:none;">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>Performance, OKRs & Peer Kudos Wall</h1>
+            <p>Cây mục tiêu OKRs & bảng vinh danh đồng nghiệp.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 8: PLATFORM RBAC VIEW -->
+      <section class="module-view" id="view-platform" style="display:none;">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>Platform Infrastructure & Access Control (RBAC)</h1>
+            <p>Phân quyền vai trò và tích hợp hệ thống API.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 9: GOVERNANCE VIEW -->
+      <section class="module-view" id="view-governance" style="display:none;">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>Corporate Governance & Security Audit Trails</h1>
+            <p>Nhật ký an ninh không thể xóa sửa & cấu hình che mờ dữ liệu PII.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 10: PROJECTS VIEW -->
+      <section class="module-view" id="view-projects" style="display:none;">
+        <div class="page-header">
+          <div class="page-title">
+            <h1>Project Resource & Cost Control</h1>
+            <p>Quản lý ngân sách dự án & bản đồ nhiệt tải năng lực nhân sự.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== DRAWER OVERLAY ==================== -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="drawer" id="profile-drawer">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+      <h2>Hồ Sơ Nhân Viên 360</h2>
+      <button class="icon-btn" id="close-drawer-btn">✕</button>
+    </div>
+    <div style="text-align:center; margin-bottom:20px;">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" style="width:80px; height:80px; border-radius:50%; border:3px solid var(--primary);">
+      <h3 style="margin-top:10px;">Trần Thanh Tâm</h3>
+      <div style="color:var(--text-muted); font-size:12px;">Mã NV: NV-001 | HR Director</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div><strong>Email:</strong> tam.tran@enterprise.com</div>
+      <div><strong>Số điện thoại:</strong> 0988 123 456</div>
+      <div><strong>Phòng ban:</strong> Khối Nhân Sự</div>
+      <div><strong>Hợp đồng:</strong> Không xác định thời hạn</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
