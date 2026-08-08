@@ -489,6 +489,23 @@
             <h1>Project Resource & Cost Control</h1>
             <p>Quản lý ngân sách dự án & bản đồ nhiệt tải năng lực nhân sự.</p>
           </div>
+          <button class="btn btn-primary" onclick="alert('Đã mở form ghi nhận giờ billable!')">⏱️ Ghi Nhận Giờ Dự Án (Log Hours)</button>
+        </div>
+
+        <div class="card" style="margin-bottom:20px;">
+          <h3>Bản Đồ Nhiệt Tải Năng Lực Nhân Sự (Member Capacity Heatmap)</h3>
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-top:16px;">
+            <div style="padding:14px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--danger-light);">
+              <div style="font-weight:700; color:var(--danger);">Nguyễn Văn Minh</div>
+              <div style="font-size:12px;">Dự án HR Platform: 120% (Quá tải)</div>
+              <div style="margin-top:6px;"><span class="badge badge-danger">High Overload</span></div>
+            </div>
+            <div style="padding:14px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--success-light);">
+              <div style="font-weight:700; color:var(--success);">Trần Thanh Tâm</div>
+              <div style="font-size:12px;">Dự án ERP Mobile: 85% (Tối ưu)</div>
+              <div style="margin-top:6px;"><span class="badge badge-active">Optimal</span></div>
+            </div>
+          </div>
         </div>
       </section>
 
