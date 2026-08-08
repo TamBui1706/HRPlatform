@@ -170,4 +170,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // --- 10. PII DATA MASKING TOGGLE LOGIC ---
+  const togglePiiBtn = document.getElementById("btn-toggle-pii-mask");
+  let isPiiMasked = true;
+  if (togglePiiBtn) {
+    togglePiiBtn.addEventListener("click", () => {
+      isPiiMasked = !isPiiMasked;
+      if (isPiiMasked) {
+        togglePiiBtn.textContent = "🛡️ Che Mờ Dữ Liệu PII (ON)";
+        togglePiiBtn.className = "btn btn-secondary";
+        alert("🛡️ Đã bật chế độ che mờ số CCCD, Số điện thoại & Mức lương PII!");
+      } else {
+        togglePiiBtn.textContent = "🔓 Hiển Thị Dữ Liệu PII (OFF)";
+        togglePiiBtn.className = "btn btn-primary";
+        alert("⚠️ Đã mở hiển thị đầy đủ thông tin cá nhân PII!");
+      }
+    });
+  }
 });
