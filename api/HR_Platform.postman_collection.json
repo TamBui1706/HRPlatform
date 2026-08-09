@@ -1,0 +1,37 @@
+{
+  "info": {
+    "name": "HR Platform Enterprise REST API",
+    "description": "Complete Postman v2.1 Collection for HR Platform Multi-Tenant Gateway",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "http://localhost:5000/api/v1/health", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "v1", "health"] }
+      }
+    },
+    {
+      "name": "Core HR - Get Employees",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{jwt_token}}" }],
+        "url": { "raw": "http://localhost:5000/api/v1/employees", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "v1", "employees"] }
+      }
+    },
+    {
+      "name": "Attendance - Clock In",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n  \"employeeId\": \"EMP-001\",\n  \"locationGps\": \"10.7769, 106.7009\"\n}" },
+        "url": { "raw": "http://localhost:5000/api/v1/attendance/clock-in", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "v1", "attendance", "clock-in"] }
+      }
+    }
+  ]
+}
