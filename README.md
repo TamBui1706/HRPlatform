@@ -1,3 +1,4 @@
+figma: https://www.figma.com/design/D35Ut0x0TXeRGMjvLaNiIt/PeopleManagement?node-id=26-2&t=LPOmQNg069LG4KMY-0
 ## HR Platform Feature Mindmap
 
 ```mermaid
